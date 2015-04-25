@@ -1,0 +1,19 @@
+{% extends "../layouts/main.html" %}
+
+{% block title %}Авторизация{% endblock %}
+
+{% block content %}
+
+  <a href="/auth/google">
+    <img src="/img/google.png" alt="google auth">
+  </a>
+
+  <br>
+  <h2>OR</h2>
+  <br>
+
+  <div class="login">
+    {% block auth %}
+    {% endblock %}
+  </div>
+{% endblock %}

@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title> ACP-ТОС | {% block title %}Title{% endblock %}  </title>
+  <meta charset="utf-8">
+  <link href="/vendor/bower_components/bootstrap/dist/css/bootstrap.css" rel='stylesheet' type='text/css' />
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="/vendor/bower_components/jquery/dist/jquery.js"></script>
+  <!-- Custom Theme files -->
+  <link href="/css/style.css" rel='stylesheet' type='text/css' />
+  <!-- Custom Theme files -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+    function hideURLbar(){ window.scrollTo(0,1); }
+  </script>
+
+  <!----webfonts--->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
+  <!---//webfonts--->
+</head>
+<body>
+  <!---- header ----->
+  <div class="header about-head">
+    <div class="container">
+      <!--- logo ----->
+      <div class="logo">
+        <a href="/"><span>АСР</span>тос</a>
+      </div>
+      <!--- logo ----->
+      <!--- top-nav ----->
+      <div class="top-nav">
+        <span class="menu"> </span>
+        <ul>
+          <li><a href="/">Главная</a></li>
+          <li><a href="/about">Описание</a></li>
+          <li><a href="/services">Сервис</a></li>
+          <li><a href="/blog">Информация</a></li>
+          <li><a href="/contact">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="clearfix"> </div>
+      <!--- top-nav ----->
+      <!----- script-for-nav ---->
+      <script>
+        $( "span.menu" ).click(function() {
+          $( ".top-nav ul" ).slideToggle( "slow", function() {
+            // Animation complete.
+          });
+        });
+      </script>
+      <!----- script-for-nav ---->
+    </div>
+  </div>
+  <!---- header ----->
+
+
+  {% block content %}
+  {% endblock %}
+
+
+
+  <!---- container footer---->
+  <div class="footer">
+    <div class="top-footer">
+      <div class="container">
+        <div class="top-footer-grids">
+          <div class="top-footer-grid">
+            <h3>Наши контакты</h3>
+            <ul class="address">
+              <li><span class="map-pin"> </span><label>Адрес организации</label></li>
+              <li><span class="mob"> </span>(123) 123-456-789</li>
+              <li><span class="msg"> </span><a href="mailto:asrtos@gmail.com">asrtos@gmail.com</a></li>
+            </ul>
+          </div>
+          <div class="top-footer-grid">
+            <h3>Последние посты</h3>
+            <ul class="latest-post">
+              <li><a href="#"><span class="icon1"> </span> Made With Love In Toronto</a> </li>
+              <li><a href="#"><span class="icon2"> </span> Startup News &amp; Emerging Tech</a> </li>
+              <li><a href="#"><span class="icon3"> </span> Bitcoin Will Soon Rule The World</a> </li>
+              <li><a href="#"><span class="icon4"> </span> Wearable Technology On The Rise</a> </li>
+              <li><a href="#"><span class="icon5"> </span> Learn Web Design In <label>30 Days!</label></a> </li>
+            </ul>
+          </div>
+          <div class="clear"> </div>
+        </div>
+      </div>
+    </div>
+      <!----start-bottom-footer---->
+      <div class="bottom-footer">
+        <div class="container">
+          <div class="bottom-footer-left">
+            <p>&#169; Copyright 2015 </p>
+          </div>
+          <div class="clear"> </div>
+        </div>
+      </div>
+      <!----//End-bottom-footer---->
+  </div>
+</body>
+</html>
+
