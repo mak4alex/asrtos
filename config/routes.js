@@ -12,6 +12,20 @@ var auth = require('./middlewares/authorization');
 /** * Expose routes */
 
 module.exports = function (app, passport) {
+  // set a cookie to requested locale
+  app.use(function (req, res, next) {
+    console.log(req.query.locale);
+    console.log(req.path);
+    if (req.query.locale === "ru" || req.query.locale === "en") {
+      res.cookie('locale', req.query.locale);
+      res.redirect(req.path);
+    }
+    else {
+      next();
+    }
+  });
+
+
 
   // user routes
   app.get('/login', users.login);
@@ -24,22 +38,20 @@ module.exports = function (app, passport) {
       failureFlash: 'Invalid email or password.'
     }), users.session);
   app.get('/users/:userId', users.show);
-
-
   app.param('userId', users.load);
 
 
+
   // home route
-  app.get('/', main.home);
+  app.get('/', main.home );
   app.get('/about', main.about);
   app.get('/blog', main.blog);
-  app.get('/contact', main.contact);
-  app.get('/services', main.services);
+  app.get('/services', auth.requiresLogin, main.services);
   app.get('/single-page', main.singlePage);
 
 
 
-  /**   * Error handling   */
+   /**   * Error handling   */
   app.use(function (err, req, res, next) {
     // treat as 404
     if (err.message

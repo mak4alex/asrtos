@@ -1,16 +1,10 @@
-
-/**
- * Module dependencies.
- */
+/** * Module dependencies. */
 
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var utils = require('../../lib/utils');
 
-/**
- * Load
- */
-
+/** * Load */
 exports.load = function (req, res, next, id) {
   var options = {
     criteria: { _id : id }
@@ -23,13 +17,11 @@ exports.load = function (req, res, next, id) {
   });
 };
 
-/**
- * Create user
- */
-
+/** * Create user */
 exports.create = function (req, res) {
   var user = new User(req.body);
   user.provider = 'local';
+  console.log(user);
   user.save(function (err) {
     if (err) {
       return res.render('users/signup', {
@@ -38,18 +30,16 @@ exports.create = function (req, res) {
         title: 'Sign up'
       });
     }
-
     // manually login the user once successfully signed up
     req.logIn(user, function(err) {
-      if (err) req.flash('info', 'Sorry! We are not able to log you in!');
+      if (err) console.log("error");
+        req.flash('info', 'Sorry! We are not able to log you in!');
       return res.redirect('/');
     });
   });
 };
 
-/**
- *  Show profile
- */
+/** *  Show profile */
 
 exports.show = function (req, res) {
   var user = req.profile;
@@ -61,15 +51,10 @@ exports.show = function (req, res) {
 
 exports.signin = function (req, res) {};
 
-/**
- * Auth callback
- */
-
+/** * Auth callback */
 exports.authCallback = login;
 
-/**
- * Show login form
- */
+/** * Show login form */
 
 exports.login = function (req, res) {
   res.render('users/login', {
@@ -77,9 +62,7 @@ exports.login = function (req, res) {
   });
 };
 
-/**
- * Show sign up form
- */
+/** * Show sign up form */
 
 exports.signup = function (req, res) {
   res.render('users/signup', {
@@ -88,27 +71,21 @@ exports.signup = function (req, res) {
   });
 };
 
-/**
- * Logout
- */
+/** * Logout */
 
 exports.logout = function (req, res) {
   req.logout();
   res.redirect('/login');
 };
 
-/**
- * Session
- */
+/** * Session */
 
 exports.session = login;
 
-/**
- * Login
- */
+/** * Login */
 
 function login (req, res) {
   var redirectTo = req.session.returnTo ? req.session.returnTo : '/';
   delete req.session.returnTo;
   res.redirect(redirectTo);
-};
+}

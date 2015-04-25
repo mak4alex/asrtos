@@ -13,6 +13,7 @@ var connect = function () {
     mongoose.connect(config.db, options);
 };
 connect();
+console.log("Mongoose: " + mongoose.connection.readyState);
 
 mongoose.connection.on('error', console.log);
 mongoose.connection.on('disconnected', connect);

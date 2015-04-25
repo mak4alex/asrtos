@@ -397,6 +397,14 @@ a.news-btn:hover{
 .icon5{
 	background:url(../img/footer-icon2.png) no-repeat 0px -160px; 
 }
+
+.language-ru {
+    background:url(../img/footer-icon2.png) no-repeat;
+}
+
+.language-en {
+    background:url(../img/footer-icon2.png) no-repeat;
+}
 /*--//latest-post--*/
 /*---latest-tweets---*/
 .tweet-box-icon{

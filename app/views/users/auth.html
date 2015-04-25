@@ -3,17 +3,19 @@
 {% block title %}Авторизация{% endblock %}
 
 {% block content %}
+  <div class="container">
+    <a href="/auth/google">
+      <img src="/img/google.png" alt="google auth">
+    </a>
 
-  <a href="/auth/google">
-    <img src="/img/google.png" alt="google auth">
-  </a>
+    <br>
+      <h2>OR</h2>
+    <br>
+    <p>{{ message }}</p>
 
-  <br>
-  <h2>OR</h2>
-  <br>
-
-  <div class="login">
-    {% block auth %}
-    {% endblock %}
+    <div class="login">
+      {% block auth %}
+      {% endblock %}
+    </div>
   </div>
 {% endblock %}

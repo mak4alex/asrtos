@@ -1,63 +1,9 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Moto Website Template | Blog :: w3layouts</title>
-        <meta charset="utf-8">
-		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="js/jquery.min.js"></script>
-		 <!-- Custom Theme files -->
-		<link href="../../public/css/style.css" rel='stylesheet' type='text/css' />
-   		 <!-- Custom Theme files -->
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+{% extends "./layouts/main.html" %}
 
-		<!----webfonts--->
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-		<!---//webfonts--->
-	</head>
-	<body>
+{% block title %}Информация{% endblock %}
+
+{% block content %}
 	<!---- container ---->
-		<!---- header ----->
-		<div class="header about-head">
-			<div class="container">
-				<!--- logo ----->
-				<div class="logo">
-					<a href="index.html"><span>M</span>oto</a>
-				</div>
-				<!--- logo ----->
-				<!--- top-nav ----->
-				<div class="top-nav">
-					<span class="menu"> </span>
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="about.html">About</a></li>
-						<li><a href="services.html">Services</a></li>
-						<li class="active"><a href="blog.html">Blog</a></li>
-						<li><a href="contact.html">Contact</a></li>
-					</ul>
-				</div>
-				<div class="clearfix"> </div>
-				<!--- top-nav ----->
-					<!----- script-for-nav ---->
-				<script>
-					$( "span.menu" ).click(function() {
-					  $( ".top-nav ul" ).slideToggle( "slow", function() {
-					    // Animation complete.
-					  });
-					});
-				</script>
-				<!----- script-for-nav ---->
-			
-			</div>
-			</div>
-		<!---- header ----->
 		<!------ about ---->
 		<div class="services">
 			<!--- bradcrumbs ---->
@@ -89,12 +35,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<h3><a href="singlepage.html">Visualizing Tweets around Emmy-nominated shows</a></h3>
 								<div class="blog-artical-grid-pic-info">
 									<div class="blog-artical-grid-pic">
-										<img src="images/post-pic1.jpg" title="place-name">
+										<img src="img/post-pic1.jpg" title="place-name">
 									</div>
 									<div class="blog-artical-grid-pic-info-admin">
 										<div class="blog-artical-grid-pic-info-admin-left">
 											<ul>
-												<li><a href="#"><img src="images/admin-pic1.jpg" title="name-here"></a></li>
+												<li><a href="#"><img src="img/admin-pic1.jpg" title="name-here"></a></li>
 												<li><p>Written by <a href="#">Garry Walt</a></p></li>
 											</ul>
 										</div>
@@ -133,12 +79,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<h3><a href="singlepage.html">London Fashion Week drives more buzz than ever on Twitter</a></h3>
 								<div class="blog-artical-grid-pic-info">
 									<div class="blog-artical-grid-pic">
-										<img src="images/post-pic2.jpg" title="place-name">
+										<img src="img/post-pic2.jpg" title="place-name">
 									</div>
 									<div class="blog-artical-grid-pic-info-admin">
 										<div class="blog-artical-grid-pic-info-admin-left">
 											<ul>
-												<li><a href="#"><img src="images/admin-pic4.jpg" title="name-here"></a></li>
+												<li><a href="#"><img src="img/admin-pic4.jpg" title="name-here"></a></li>
 												<li><p>Written by <a href="#">Garry Walt</a></p></li>
 											</ul>
 										</div>
@@ -177,12 +123,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<h3><a href="#">#RockInRio 2013</a></h3>
 								<div class="blog-artical-grid-pic-info">
 									<div class="blog-artical-grid-pic">
-										<img src="images/post-pic3.jpg" title="place-name">
+										<img src="img/post-pic3.jpg" title="place-name">
 									</div>
 									<div class="blog-artical-grid-pic-info-admin">
 										<div class="blog-artical-grid-pic-info-admin-left">
 											<ul>
-												<li><a href="#"><img src="images/admin-pic2.jpg" title="name-here"></a></li>
+												<li><a href="#"><img src="img/admin-pic2.jpg" title="name-here"></a></li>
 												<li><p>Written by <a href="#">Garry Walt</a></p></li>
 											</ul>
 										</div>
@@ -221,12 +167,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<h3><a href="singlepage.html">Vine videos that grew on us - Sept 13</a></h3>
 								<div onclick="location.href='singlepage.html';" class="blog-artical-grid-pic-info">
 									<div class="blog-artical-grid-pic">
-										<img src="images/post-pic1.jpg" title="place-name">
+										<img src="img/post-pic1.jpg" title="place-name">
 									</div>
 									<div class="blog-artical-grid-pic-info-admin">
 										<div class="blog-artical-grid-pic-info-admin-left">
 											<ul>
-												<li><a href="#"><img src="images/admin-pic3.jpg" title="name-here"></a></li>
+												<li><a href="#"><img src="img/admin-pic3.jpg" title="name-here"></a></li>
 												<li><p>Written by <a href="#">Garry Walt</a></p></li>
 											</ul>
 										</div>
@@ -366,7 +312,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<div class="blog-comment-grids">
 								<div class="blog-comment-grid">
 									<div class="blog-comment-grid-left">
-										<img src="images/admin-pic1.jpg" alt="">
+										<img src="img/admin-pic1.jpg" alt="">
 									</div>
 									<div class="blog-comment-grid-right">
 										<a href="#">Endy Brown</a>
@@ -376,7 +322,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</div>
 								<div class="blog-comment-grid">
 									<div class="blog-comment-grid-left">
-										<img src="images/admin-pic2.jpg" alt="">
+										<img src="img/admin-pic2.jpg" alt="">
 									</div>
 									<div class="blog-comment-grid-right">
 										<a href="#">Millana Watson</a>
@@ -386,7 +332,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</div>
 								<div class="blog-comment-grid">
 									<div class="blog-comment-grid-left">
-										<img src="images/admin-pic3.jpg" alt="">
+										<img src="img/admin-pic3.jpg" alt="">
 									</div>
 									<div class="blog-comment-grid-right">
 										<a href="#">Andrew Haching</a>
@@ -396,7 +342,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</div>
 								<div class="blog-comment-grid">
 									<div class="blog-comment-grid-left">
-										<img src="images/admin-pic4.jpg" alt="">
+										<img src="img/admin-pic4.jpg" alt="">
 									</div>
 									<div class="blog-comment-grid-right">
 										<a href="#">Bruse Loome</a>
@@ -412,64 +358,5 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 			</div>
 	<!---- container ---->
-	<div class="footer">
-				<div class="top-footer">
-					<div class="container">
-						<div class="top-footer-grids">
-							<div class="top-footer-grid">
-								<h3>Contact us</h3>
-								<ul class="address">
-									<li><span class="map-pin"> </span><label>55 Main St.Toronto, ON M1H 3A5</label></li>
-									<li><span class="mob"> </span>(416) 555-5252</li>
-									<li><span class="msg"> </span><a href="mailto:yourname@yoursite.com">hello@moto.com</a></li>
-								</ul>
-							</div>
-							<div class="top-footer-grid">
-								<h3>Latest posts</h3>
-								<ul class="latest-post">
-									<li><a href="#"><span class="icon1"> </span> Made With Love In Toronto</a> </li>
-									<li><a href="#"><span class="icon2"> </span> Startup News &amp; Emerging Tech</a> </li>
-									<li><a href="#"><span class="icon3"> </span> Bitcoin Will Soon Rule The World</a> </li>
-									<li><a href="#"><span class="icon4"> </span> Wearable Technology On The Rise</a> </li>
-									<li><a href="#"><span class="icon5"> </span> Learn Web Design In <label>30 Days!</label></a> </li>
-								</ul>
-							</div>
-							<div class="top-footer-grid">
-								<h3>Latest tweets</h3>
-								<div class="tweet-box">
-									<div class="tweet-box-icon">
-										<span> </span>
-									</div>
-									<div class="tweet-box-info">
-										<p>Confucius: Life is really simple, but we insist on making it complicated. <span><a href="#">#famousquotes</a></span><label><a href="#"> 8 mins ago</a></label></p>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-								<div class="tweet-box">
-									<div class="tweet-box-icon">
-										<span> </span>
-									</div>
-									<div class="tweet-box-info">
-										<p>Confucius: Life is really simple, but we insist on making it complicated. <span><a href="#">#famousquotes</a></span><label><a href="#"> 8 mins ago</a></label></p>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-					</div>
-				</div>
-				<!----start-bottom-footer---->
-				<div class="bottom-footer">
-					<div class="container"> 
-						<div class="bottom-footer-left">
-							<p>&#169; Copyright 2014 Template by <a href="http://w3layouts.com/">W3layouts</a></p>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<!----//End-bottom-footer---->
-			</div>
-	</body>
-</html>
 
+{% endblock %}

@@ -171,7 +171,6 @@ UserSchema.statics = {
 
     /**
      * Load
-     *
      * @param {Object} options
      * @param {Function} cb
      * @api private
@@ -185,4 +184,4 @@ UserSchema.statics = {
     }
 };
 
-exports.User = mongoose.model('User', UserSchema);
+mongoose.model('User', UserSchema);

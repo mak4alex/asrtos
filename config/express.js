@@ -16,6 +16,7 @@ var winston = require('winston');
 var helpers = require('view-helpers');
 var config = require('./config');
 var pkg = require('../package.json');
+var i18n = require("i18n");
 
 var env = process.env.NODE_ENV || 'development';
 
@@ -102,6 +103,15 @@ module.exports = function (app, passport) {
 
   // should be declared after session and flash
   app.use(helpers(pkg.name));
+
+  // set locale
+  i18n.configure({
+    locales:['ru', 'en'],
+    cookie: 'locale',
+    directory: __dirname + '/locales'
+  });
+
+  app.use(i18n.init);
 
   // adds CSRF support
   if (process.env.NODE_ENV !== 'test') {

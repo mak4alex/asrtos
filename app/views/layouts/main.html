@@ -32,11 +32,17 @@
       <div class="top-nav">
         <span class="menu"> </span>
         <ul>
-          <li><a href="/">Главная</a></li>
+          <li><a href="/">{{__('home')}}</a></li>
           <li><a href="/about">Описание</a></li>
           <li><a href="/services">Сервис</a></li>
-          <li><a href="/blog">Информация</a></li>
-          <li><a href="/contact">Контакты</a></li>
+          <li><a href="/blog">Информация</a></li> |
+          {% if (req.isAuthenticated()) %}
+            <li><a href="/logout">Выйти</a></li>
+            <a href="{{ '/users/' + req.user.id }}" title="Profile">Profile {{req.user.email}}</a>
+          {% else %}
+            <li><a href="/login">Войти</a></li>
+          {% endif %}
+
         </ul>
       </div>
       <div class="clearfix"> </div>
@@ -81,6 +87,13 @@
               <li><a href="#"><span class="icon3"> </span> Bitcoin Will Soon Rule The World</a> </li>
               <li><a href="#"><span class="icon4"> </span> Wearable Technology On The Rise</a> </li>
               <li><a href="#"><span class="icon5"> </span> Learn Web Design In <label>30 Days!</label></a> </li>
+            </ul>
+          </div>
+          <div class="top-footer-grid">
+            <h3>Язык</h3>
+            <ul class="latest-post">
+              <li><a href="{{req.path}}?locale=ru"><span class="icon1"></span>Русский</a></li>
+              <li><a href="{{req.path}}?locale=en"><span class="icon2"></span>Ангийский</a></li>
             </ul>
           </div>
           <div class="clear"> </div>
