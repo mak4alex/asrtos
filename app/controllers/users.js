@@ -24,16 +24,18 @@ exports.create = function (req, res) {
   console.log(user);
   user.save(function (err) {
     if (err) {
+      console.log(err);
       return res.render('users/signup', {
-        error: utils.errors(err.errors),
+        errors: utils.errors(err.errors),
         user: user,
         title: 'Sign up'
       });
     }
     // manually login the user once successfully signed up
     req.logIn(user, function(err) {
-      if (err) console.log("error");
-        req.flash('info', 'Sorry! We are not able to log you in!');
+      if (err) req.flash('info', 'Sorry! We are not able to log you in!');
+      else req.flash('success', 'You are successfully log in!');
+
       return res.redirect('/');
     });
   });
@@ -87,5 +89,6 @@ exports.session = login;
 function login (req, res) {
   var redirectTo = req.session.returnTo ? req.session.returnTo : '/';
   delete req.session.returnTo;
+  req.flash('success', 'You are successfully log in!');
   res.redirect(redirectTo);
 }

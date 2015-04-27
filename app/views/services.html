@@ -1,6 +1,6 @@
 {% extends "./layouts/main.html" %}
 
-{% block title %}Описание{% endblock %}
+{% block title %}Сервис{% endblock %}
 
 {% block content %}
 
@@ -14,7 +14,7 @@
         </div>
         <div class="breadcrumbs-right">
           <ul>
-            <li><a href="index.html">Главная</a> <label>:</label></li>
+            <li><a href="/">Главная</a> <label>:</label></li>
             <li>Сервис</li>
           </ul>
         </div>
@@ -26,28 +26,32 @@
   <div class="services-top-grids">
     <div class="container">
       <div class="services-wel wel-head text-center">
-        <h3><span>M</span>oto Services </h3>
-        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
+        <h3><span>АСР</span>ТОС функции</h3>
+        <p>АСР-ТОС предлагае функции для логистических расчётов</p>
       </div>
       <!---- services-grids ---->
       <div class="service-grids">
         <div class="col-md-4 service-grid">
-          <img src="img/m1.jpg" title="services-name" />
-          <h3>Service Name</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nisl turpis, aliquet mattis eros eu, ullamcorper tempus odio. Praesent vel mauris tincidunt felis varius feugiat eget non risus.</p>
+          <img src="img/store1.jpeg" title="services-name" />
+          <h3>Расчёт площади склада</h3>
+          <p>Эта функция поможет расчитать необходимые площади складских помещений.</p>
+          <a href="/services/1" class="btn btn-primary">Использовать</a>
+        </div>
+
+        <div class="col-md-4 service-grid">
+          <img src="img/store2.jpg" title="services-name" />
+          <h3>Определение класса склада</h3>
+          <p>Эта функция позволяет классифицировать склад на основе ряда параметров.</p>
+          <a href="/services/2" class="btn btn-primary">Использовать</a>
         </div>
         <div class="col-md-4 service-grid">
-          <img src="img/m3.jpg" title="services-name" />
-          <h3>Service Name</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nisl turpis, aliquet mattis eros eu, ullamcorper tempus odio. Praesent vel mauris tincidunt felis varius feugiat eget non risus.</p>
-        </div>
-        <div class="col-md-4 service-grid">
-          <img src="img/m2.jpg" title="services-name" />
-          <h3>Service Name</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nisl turpis, aliquet mattis eros eu, ullamcorper tempus odio. Praesent vel mauris tincidunt felis varius feugiat eget non risus.</p>
+          <img src="img/supply.jpg" title="services-name" />
+          <h3>Планирование поставок</h3>
+          <p>Эта функция поможет определить оптимальную партию поставки и спланировать режим поставок.</p>
+          <a href="/services/3" class="btn btn-primary">Использовать</a>
         </div>
         <div class="clearfix"> </div>
-        <a class="viewmore-s" href="#">Viewall</a>
+      <!--  <a class="viewmore-s" href="#">Viewall</a> -->
       </div>
       <!---- services-grids ---->
     </div>
@@ -57,8 +61,8 @@
   <div class="about-note welcome-note">
     <div class="container">
       <div class="wel-head text-center">
-        <h3>WE Are <span>M</span>oto</h3>
-        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
+        <h3>Новые возможности</h3>
+        <p>Совсем скоро будут добавлены новые полезные функии.</p>
       </div>
     </div>
   </div>
@@ -67,21 +71,20 @@
   <div class="top-grids">
     <div class="container">
       <div class="col-md-4 top-grid">
-        <h4>Available</h4>
-        <p>If you are going to use a passage of Lorem Ipsum, there isn't anything embarrassing hidden in the middle of text.</p>
+        <h4>В разработе</h4>
+        <p>Скоро появится.</p>
       </div>
       <div class="col-md-4 top-grid">
-        <h4>Available</h4>
-        <p>If you are going to use a passage of Lorem Ipsum, there isn't anything embarrassing hidden in the middle of text.</p>
+        <h4>В разработе</h4>
+        <p>Скоро появится.</p>
       </div>
       <div class="col-md-4 top-grid">
-        <h4>Available</h4>
-        <p>If you are going to use a passage of Lorem Ipsum, there isn't anything embarrassing hidden in the middle of text.</p>
+        <h4>В разработе</h4>
+        <p>Скоро появится.</p>
       </div>
       <div class="clearfix"> </div>
     </div>
   </div>
   <!---- top-grids ---->
 <!---- container ---->
-
 {% endblock %}

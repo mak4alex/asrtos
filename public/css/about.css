@@ -1,0 +1,8 @@
+.slick-prev:before, .slick-next:before{
+    color:#222222;
+}
+
+.slider-1 {
+    min-height: 450px;
+    background: url('/img/post-pic1.jpg') no-repeat;
+}

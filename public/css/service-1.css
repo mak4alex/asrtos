@@ -1,0 +1,46 @@
+label {
+    display: inline-block;
+
+}
+fieldset div {
+    margin-bottom: 1.5em;
+}
+fieldset .help {
+    display: inline-block;
+}
+.ui-tooltip {
+    width: 20%;
+}
+
+.forms{
+    width: 50%;
+    margin: auto;
+}
+
+
+table {
+    width: 100%;
+}
+
+td {
+    border: 3px solid #222222;
+    padding: 20px;
+    text-align: center;
+}
+
+.one-third {
+    width: 33.333333333%
+}
+
+.two-third {
+    width: 66.666666666%
+}
+
+.summary {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#results {
+    display: none;
+}

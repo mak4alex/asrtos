@@ -1,6 +1,7 @@
 /*!  * Module dependencies. */
 var users = require('../app/controllers/users');
 var main = require('../app/controllers/main');
+var service = require('../app/controllers/service');
 
 var auth = require('./middlewares/authorization');
 
@@ -26,7 +27,6 @@ module.exports = function (app, passport) {
   });
 
 
-
   // user routes
   app.get('/login', users.login);
   app.get('/signup', users.signup);
@@ -49,7 +49,13 @@ module.exports = function (app, passport) {
   app.get('/services', auth.requiresLogin, main.services);
   app.get('/single-page', main.singlePage);
 
+  // service
+  app.get('/services/1', auth.requiresLogin, service.getService1);
+  app.get('/services/2', auth.requiresLogin, service.getService2);
+  app.get('/services/3', auth.requiresLogin, service.getService3);
 
+
+  app.post('/services/1', auth.requiresLogin, service.handleService1);
 
    /**   * Error handling   */
   app.use(function (err, req, res, next) {

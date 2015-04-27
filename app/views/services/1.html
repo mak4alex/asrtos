@@ -1,0 +1,84 @@
+{% extends '../layouts/main.html' %}
+
+{% block title %}Расчёт площади склада{% endblock %}
+
+{% block head %}
+  {% parent %}
+  <link rel="stylesheet" href="/css/service-1.css">
+  <script src="/js/service-1.js"></script>
+{% endblock %}
+
+{% block content %}
+
+{% include "../includes/navigation.html" with { service: "Расчёт площади склада" } %}
+
+<div class="container">
+  <div class="services-wel wel-head text-center">
+    <h3>Расчёт площади склада</h3>
+    <p>Заполните необходимые поля и получите моментально получите результат.</p>
+  </div>
+  <form id="calculate" name="calculate" method="post" action="/services/1" data-remote="true"  >
+    <input type="hidden" name="_csrf" value="{{ csrf_token }}">
+    <fieldset>
+      <div class="forms">
+        <div class="form-group">
+          <label for="average-demand">Среднесуточный спрос</label>
+          <input id="average-demand" name="average-demand" type="number" min="0.01" step="0.01" class="form-control" title="Please provide your firstname." required>
+        </div>
+        <div class="form-group">
+          <label for="mass-unit">Вес еденицы</label>
+          <input id="mass-unit" name="mass-unit" class="form-control" type="number" min="0.01" step="0.01" title="Please provide also your lastname." required>
+        </div>
+        <div class="form-group">
+          <label for="rate-ripple">Коэф. неравномерности</label>
+          <input id="rate-ripple" name="rate-ripple" type="number" min="0.01" step="0.01" class="form-control" title="Your home or work address." required>
+        </div>
+        <div class="form-group">
+          <label for="shelves-count">Количество стеллажей</label>
+          <input id="shelves-count" name="shelves-count" type="number" min="0.01" step="0.01" class="form-control" title="Your home or work address." required>
+        </div>
+        <div class="form-group">
+          <label for="shelve-square">Площадь стеллажа</label>
+          <input id="shelve-square" name="shelve-square" type="number" min="0.01" step="0.01"  class="form-control" title="Your home or work address." required>
+        </div>
+        <div class="form-group">
+          <label for="time-save">Время хранения</label>
+          <input id="time-save" name="time-save" type="number" min="0.01" step="0.01" class="form-control" title="Please provide your firstname." required>
+        </div>
+        <div class="form-group">
+          <label for="rate-load">Коэф. нагрузки на пол</label>
+          <input id="rate-load" name="rate-load" class="form-control" type="number" min="0.01" step="0.01" title="Please provide also your lastname." required>
+        </div>
+        <div class="form-group">
+          <label for="loader-width">Ширина погрузчика</label>
+          <input id="loader-width" name="loader-width" class="form-control" type="number" min="0.01" step="0.01" title="Your home or work address." required>
+        </div>
+        <div class="text-center">
+          <button id="submit" type="submit" class="btn btn-primary">Получить результат</button>
+          <button id="get-help" type="button" class="btn btn-info">Показать подсказки</button>
+          <button type="reset" class="btn btn-warning">Очистить форму</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+<div class="container" id="results">
+  <div class="services-wel wel-head text-center">
+    <h3>Площади складских участков</h3>
+  </div>
+  <table>
+    <tr>
+      <td colspan="2" class="lead">Участок погрузки: <span id="load-square"></span>м<sup>2</sup></td>
+    </tr>
+    <tr>
+      <td class="lead two-third">Полезная площадь: <span id="useful-square"></span>м<sup>2</sup></td>
+      <td class="lead one-third">Вспомогательная площадь: <span id="helper-square"></span>м<sup>2</sup></td>
+    </tr>
+    <tr>
+      <td colspan="2" class="lead">Участок отгрузки: <span id="ship-square"></span>м<sup>2</sup></td>
+    </tr>
+  </table>
+    <h4 class="summary">Общая площадь: <span id="store-square"></span>м<sup>2</sup>.</h4>
+</div>
+{% endblock %}

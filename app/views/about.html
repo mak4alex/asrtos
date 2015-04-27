@@ -2,6 +2,14 @@
 
 {% block title %}Описание{% endblock %}
 
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="/vendor/bower_components/slick.js/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="/vendor/bower_components/slick.js/slick/slick-theme.css"/>
+  <link rel="stylesheet" href="/css/about.css" />
+  <script type="text/javascript" src="/vendor/bower_components/slick.js/slick/slick.js"></script>
+  <script src="/js/about.js" ></script>
+{% endblock %}
+
 {% block content %}
 
     <!------ about ---->
@@ -23,58 +31,97 @@
         </div>
         <!--- bradcrumbs ---->
     </div>
+
+    <div class="container" id="slider">
+      <div class="blog-artical-grid-pic-info">
+        <div class="blog-artical-grid-pic">
+          <img src="img/post-pic2.jpg" title="place-name">
+        </div>
+        <div class="blog-artical-grid-pic-info-admin">
+          <div class="blog-artical-grid-pic-info-admin-left">
+            <ul>
+              <li><a href="#"><img src="img/admin-pic4.jpg" title="name-here"></a></li>
+              <li><p>Written by <a href="#">Garry Walt</a></p></li>
+            </ul>
+          </div>
+          <div class="blog-artical-grid-pic-info-admin-right">
+            <h6>19/<span>09</span></h6>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+      </div>
+      <div class="blog-artical-grid-pic-info">
+        <div class="blog-artical-grid-pic">
+          <img src="img/post-pic1.jpg" title="place-name">
+        </div>
+        <div class="blog-artical-grid-pic-info-admin">
+          <div class="blog-artical-grid-pic-info-admin-left">
+            <ul>
+              <li><a href="#"><img src="img/admin-pic1.jpg" title="name-here"></a></li>
+              <li><p>Written by <a href="#">Garry Walt</a></p></li>
+            </ul>
+          </div>
+          <div class="blog-artical-grid-pic-info-admin-right">
+            <h6>19/<span>09</span></h6>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+      </div>
+      <div class="blog-artical-grid-pic-info">
+        <div class="blog-artical-grid-pic">
+          <img src="img/post-pic3.jpg" title="place-name">
+        </div>
+        <div class="blog-artical-grid-pic-info-admin">
+          <div class="blog-artical-grid-pic-info-admin-left">
+            <ul>
+              <li><a href="#"><img src="img/admin-pic2.jpg" title="name-here"></a></li>
+              <li><p>Written by <a href="#">Garry Walt</a></p></li>
+            </ul>
+          </div>
+          <div class="blog-artical-grid-pic-info-admin-right">
+            <h6>19/<span>09</span></h6>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+      </div>
+    </div>
+
     <div class="about-top-grids">
         <div class="container">
             <div class="about-wel wel-head text-center">
-                <h3>Описание <span>АСР</span>ТОС</h3>
+                <h3>Возможности <span>АСР</span>ТОС</h3>
                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
             </div>
             <!---- about-grids ---->
-            <div class="about-grids">
-                <div class="about-grids-row1">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of  it.</p>
-                </div>
-                <div class="about-grids-row2">
-                    <div class="about-grids-row2-grid">
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore,</p>
-                    </div>
-                    <div class="about-grids-row2-grid">
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore,</p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
+            <div class="about-grids" id="accordion">
+              <h3>Выбор месторосположения оптового склада</h3>
+              <div class="about-grids-row1">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              </div>
+              <h3>Расчет стоимости перевозки</h3>
+              <div class="about-grids-row1">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              </div>
+              <h3>Расчет площади оптового склада</h3>
+              <div class="about-grids-row1">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              </div>
+              <h3>Определение класса оптового склада</h3>
+              <div class="about-grids-row1">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              </div>
+              <h3>Планирование поставок оптового склада</h3>
+              <div class="about-grids-row1">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              </div>
+              <h3>Выбор между собственным и арендным складом</h3>
+              <div class="about-grids-row1">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              </div>
             </div>
             <!---- about-grids ---->
         </div>
     <!------ about ---->
     </div>
-    <!---- welcome-Note ---->
-    <div class="about-note welcome-note">
-        <div class="container">
-            <div class="wel-head text-center">
-                <h3>WE Are <span>M</span>oto</h3>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
-            </div>
-        </div>
-    </div>
-    <!---- welcome-Note ---->
-    <!---- top-grids ---->
-    <div class="top-grids">
-        <div class="container">
-            <div class="col-md-4 top-grid">
-                <h4>Описание функции</h4>
-                <p>If you are going to use a passage of Lorem Ipsum, there isn't anything embarrassing hidden in the middle of text.</p>
-            </div>
-            <div class="col-md-4 top-grid">
-                <h4>Описание функции</h4>
-                <p>If you are going to use a passage of Lorem Ipsum, there isn't anything embarrassing hidden in the middle of text.</p>
-            </div>
-            <div class="col-md-4 top-grid">
-                <h4>Описание функции</h4>
-                <p>If you are going to use a passage of Lorem Ipsum, there isn't anything embarrassing hidden in the middle of text.</p>
-            </div>
-            <div class="clearfix"> </div>
-        </div>
-    </div>
-    <!---- top-grids ---->
+
 {% endblock %}
