@@ -40,6 +40,28 @@ module.exports = function (app, passport) {
   app.get('/users/:userId', users.show);
   app.param('userId', users.load);
 
+  app.get('/auth/google',
+      passport.authenticate('google', {
+        failureRedirect: '/login',
+        scope: [
+          'https://www.googleapis.com/auth/userinfo.profile',
+          'https://www.googleapis.com/auth/userinfo.email'
+        ]
+      }), users.signin);
+  app.get('/auth/google/callback',
+      passport.authenticate('google', {
+        failureRedirect: '/login'
+      }), users.authCallback);
+
+  app.get('/auth/vkontakte',
+      passport.authenticate('vkontakte', {
+        failureRedirect: '/login'
+      }), users.signin);
+  app.get('/auth/vkontakte/callback',
+      passport.authenticate('vkontakte', {
+        failureRedirect: '/login'
+      }), users.authCallback);
+
 
 
   // home route
@@ -56,6 +78,7 @@ module.exports = function (app, passport) {
 
 
   app.post('/services/1', auth.requiresLogin, service.handleService1);
+  app.post('/services/3', auth.requiresLogin, service.handleService3);
 
    /**   * Error handling   */
   app.use(function (err, req, res, next) {

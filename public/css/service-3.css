@@ -1,0 +1,9 @@
+.forms{
+    width: 50%;
+    margin: auto;
+}
+
+
+#results {
+    display: none;
+}

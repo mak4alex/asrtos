@@ -4,8 +4,8 @@ var crypto = require('crypto');
 var Schema = mongoose.Schema;
 
 var oAuthTypes = [
-    'vkontakte',
-    'google'
+    'google',
+    'vkontakte'
 ];
 
 var UserSchema = new Schema({
@@ -42,6 +42,7 @@ var UserSchema = new Schema({
         default: ''
     },
     google: {},
+    vkontakte: {},
     created: {
         type: Date,
         default: Date.now

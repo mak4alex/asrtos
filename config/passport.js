@@ -4,6 +4,8 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = mongoose.model('User');
 
 var local = require('./passport/local');
+var google = require('./passport/google');
+var vkontakte = require('./passport/vkontakte');
 
 
 
@@ -22,4 +24,6 @@ module.exports = function (passport, config) {
 
   // use these strategies
   passport.use(local);
+  passport.use(google);
+  passport.use(vkontakte);
 };

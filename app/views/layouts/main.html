@@ -44,7 +44,7 @@
           <li><a href="/blog">Информация</a></li> |
           {% if (req.isAuthenticated()) %}
             <li><a href="/logout">Выйти</a></li>
-            <li><a href="{{ '/users/' + req.user.id }}" >{{req.user.username}}</a></li>
+            <li><a href="{{ '/users/' + req.user.id }}" >{{req.user.name}}</a></li>
           {% else %}
             <li><a href="/login">Войти</a></li>
           {% endif %}

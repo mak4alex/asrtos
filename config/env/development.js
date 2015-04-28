@@ -19,5 +19,15 @@ if (fs.existsSync(envFile)) {
 /** * Expose */
 
 module.exports = {
-  db: 'mongodb://localhost/noodjs_dev'
+  db: 'mongodb://localhost/noodjs_dev',
+  google: {
+    clientID: process.env.GOOGLE_CLIENTID,
+    clientSecret: process.env.GOOGLE_SECRET,
+    callbackURL: "http://localhost:3000/auth/google/callback"
+  },
+  vkontakte: {
+    clientID: process.env.VKONTAKTE_CLIENTID,
+    clientSecret: process.env.VKONTAKTE_SECRET,
+    callbackURL: "http://localhost:3000/auth/vkontakte/callback"
+  }
 };

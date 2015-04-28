@@ -29,3 +29,19 @@ exports.handleService1 = function(req, res){
 
   res.json(results)
 };
+
+exports.handleService3 = function(req, res){
+  var data = req.body;
+  for (var el in data) {
+    data[el] = parseFloat(data[el]);
+  }
+  var results = {};
+  results["optimal-order"] = Math.sqrt(2 * data["average-demand"] * data["const-costs"] / ( data["cost-unit"] * data["upkeep-cost"] / 100 ) );
+  results["min-costs"] = Math.sqrt( data["average-demand"] * data["const-costs"] * data["cost-unit"] * data["upkeep-cost"] ) ;
+  results["regime-supply"] = results["optimal-order"] / data["average-demand"];
+
+  console.log(data);
+  console.log(results);
+
+  res.json(results)
+};

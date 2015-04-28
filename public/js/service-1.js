@@ -20,7 +20,7 @@ $(document).ready(function() {
       dataType: 'json',
       data: $(this).serialize(),
       success: function(data){
-        alert(data['useful-square']);
+
          $("#load-square").text( data['load-ship-square']);
          $("#useful-square").text( data['useful-square']);
          $("#helper-square").text( data['helper-square']);
