@@ -1,0 +1,29 @@
+{% extends '../layouts/main.html' %}
+
+{% block title %}Расчет стоимости перевозки{% endblock %}
+
+{% block head %}
+{% parent %}
+<link rel="stylesheet" href="/css/service-5.css">
+<script src="/js/service-5.js"></script>
+{% endblock %}
+
+{% block content %}
+
+{% include "../includes/navigation.html" with { service: "Расчет стоимости перевозки" } %}
+
+<div class="container">
+  <div class="services-wel wel-head text-center">
+    <h3>Расчет стоимости перевозки</h3>
+
+    <p>Расчет оптимальной партии поставок, минимальных затрат и режима поставок по методу Уилсона.</p>
+  </div>
+  {% for carriage in carriages%}
+  {% include '../includes/carriage-form.html' %}
+  <hr/>
+  {% endfor %}
+  {% include '../includes/carriage-form.html' %}
+
+</div>
+
+{% endblock %}

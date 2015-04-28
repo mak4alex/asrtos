@@ -398,12 +398,14 @@ a.news-btn:hover{
 	background:url(../img/footer-icon2.png) no-repeat 0px -160px; 
 }
 
-.language-ru {
-    background:url(../img/footer-icon2.png) no-repeat;
+.lang-ru {
+    background: url(../img/ru.png) no-repeat;
+    background-size: 100% 100%;
 }
 
-.language-en {
-    background:url(../img/footer-icon2.png) no-repeat;
+.lang-en {
+    background: url(../img/en.png) no-repeat;
+    background-size: 100% 100%;
 }
 /*--//latest-post--*/
 /*---latest-tweets---*/
@@ -669,6 +671,7 @@ a.viewmore-s:hover{
 }
 .blog-artical-grid-pic img{
 	display:block;
+
 }
 .blog-artical-grid-pic-info-admin-left li a img{
 	border-radius: 30em;
@@ -916,6 +919,7 @@ a.viewmore-s:hover{
 }
 .blog-artical-grid-pic img{
 	width:100%;
+    max-height: 400px;
 }
 /*-----//End-blog-right----*/
 /*---- start-blog-single-page----*/

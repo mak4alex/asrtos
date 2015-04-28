@@ -1,4 +1,6 @@
 {
+  "copyright": "Авторское право",
+  "contacts": "Контакты",
 	"home": "Главная",
 	"service": "Сервис",
 	"about": "Описание",
@@ -9,5 +11,7 @@
 	"english": "Английский",
 	"russian": "Русский",
 	"language": "Язык",
-	"hom": "hom"
+  "hom": "hom",
+  "address": "Адрес",
+  "latest_posts": "Последние посты"
 }

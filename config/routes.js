@@ -2,13 +2,15 @@
 var users = require('../app/controllers/users');
 var main = require('../app/controllers/main');
 var service = require('../app/controllers/service');
+var articles = require('../app/controllers/articles');
+var comments = require('../app/controllers/comments');
 
 var auth = require('./middlewares/authorization');
-
+var layout = require('./middlewares/layout');
 /** * Route middlewares */
+var articleAuth = [auth.requiresLogin, auth.article.hasAuthorization];
+var commentAuth = [auth.requiresLogin, auth.comment.hasAuthorization];
 
-//var articleAuth = [auth.requiresLogin, auth.article.hasAuthorization];
-//var commentAuth = [auth.requiresLogin, auth.comment.hasAuthorization];
 
 /** * Expose routes */
 
@@ -26,6 +28,7 @@ module.exports = function (app, passport) {
     }
   });
 
+  app.use(layout.layoutValues);
 
   // user routes
   app.get('/login', users.login);
@@ -62,23 +65,47 @@ module.exports = function (app, passport) {
         failureRedirect: '/login'
       }), users.authCallback);
 
+  app.param('userId', users.load);
 
 
-  // home route
+  // main routes
   app.get('/', main.home );
   app.get('/about', main.about);
-  app.get('/blog', main.blog);
   app.get('/services', auth.requiresLogin, main.services);
-  app.get('/single-page', main.singlePage);
 
-  // service
+  // services
   app.get('/services/1', auth.requiresLogin, service.getService1);
   app.get('/services/2', auth.requiresLogin, service.getService2);
   app.get('/services/3', auth.requiresLogin, service.getService3);
+  app.get('/services/4', auth.requiresLogin, service.getService4);
+  app.get('/services/5', auth.requiresLogin, service.getService5);
+  app.get('/services/6', auth.requiresLogin, service.getService6);
 
 
   app.post('/services/1', auth.requiresLogin, service.handleService1);
   app.post('/services/3', auth.requiresLogin, service.handleService3);
+
+  app.post('/services/5', auth.requiresLogin, service.createCarriage);
+  app.delete('/services/5', auth.requiresLogin, service.deleteCarriage);
+
+
+  // article routes
+  app.param('id', articles.load);
+  app.get('/news', articles.index);
+  app.get('/news/new', auth.requiresLogin, articles.new);
+  app.post('/news', auth.requiresLogin, articles.create);
+  app.get('/news/:id', articles.show);
+  app.get('/news/:id/edit', articleAuth, articles.edit);
+  app.put('/news/:id', articleAuth, articles.update);
+  app.delete('/news/:id', articleAuth, articles.destroy);
+
+
+  // comment routes
+  app.param('commentId', comments.load);
+  app.post('/news/:id/comments', auth.requiresLogin, comments.create);
+  app.get('/news/:id/comments', auth.requiresLogin, comments.create);
+  app.delete('/news/:id/comments/:commentId', commentAuth, comments.destroy);
+
 
    /**   * Error handling   */
   app.use(function (err, req, res, next) {

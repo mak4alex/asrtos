@@ -11,6 +11,7 @@
 
   <!-- Custom Theme files -->
   <link href="/css/style.css" rel='stylesheet' type='text/css' />
+
   <link rel="stylesheet" href="/vendor/bower_components/jquery-ui/themes/base/jquery-ui.css">
 
   <!-- Custom Theme files -->
@@ -39,16 +40,16 @@
         <span class="menu"> </span>
         <ul>
           <li><a href="/">{{__('home')}}</a></li>
-          <li><a href="/about">Описание</a></li>
-          <li><a href="/services">Сервис</a></li>
-          <li><a href="/blog">Информация</a></li> |
+          <li><a href="/about">{{__('about')}}</a></li>
+          <li><a href="/services">{{__('service')}}</a></li>
+          <li><a href="/news">{{__('news')}}</a></li>
+          |
           {% if (req.isAuthenticated()) %}
-            <li><a href="/logout">Выйти</a></li>
+          <li><a href="/logout">{{__('logout')}}</a></li>
             <li><a href="{{ '/users/' + req.user.id }}" >{{req.user.name}}</a></li>
           {% else %}
-            <li><a href="/login">Войти</a></li>
+          <li><a href="/login">{{__('login')}}</a></li>
           {% endif %}
-
         </ul>
       </div>
       <div class="clearfix"> </div>
@@ -70,11 +71,8 @@
     {% include '../includes/messages.html' %}
   </div>
 
-
   {% block content %}
   {% endblock %}
-
-
 
   <!---- container footer---->
   <div class="footer">
@@ -82,28 +80,31 @@
       <div class="container">
         <div class="top-footer-grids">
           <div class="top-footer-grid">
-            <h3>Наши контакты</h3>
+            <h3>{{__('contacts')}}</h3>
             <ul class="address">
-              <li><span class="map-pin"> </span><label>Адрес организации</label></li>
+              <li><span class="map-pin"> </span><label>{{__('address')}}</label></li>
               <li><span class="mob"> </span>(123) 123-456-789</li>
               <li><span class="msg"> </span><a href="mailto:asrtos@gmail.com">asrtos@gmail.com</a></li>
             </ul>
           </div>
           <div class="top-footer-grid">
-            <h3>Последние посты</h3>
+            <h3>{{__('latest_posts')}}</h3>
             <ul class="latest-post">
-              <li><a href="#"><span class="icon1"> </span> Made With Love In Toronto</a> </li>
-              <li><a href="#"><span class="icon2"> </span> Startup News &amp; Emerging Tech</a> </li>
-              <li><a href="#"><span class="icon3"> </span> Bitcoin Will Soon Rule The World</a> </li>
-              <li><a href="#"><span class="icon4"> </span> Wearable Technology On The Rise</a> </li>
-              <li><a href="#"><span class="icon5"> </span> Learn Web Design In <label>30 Days!</label></a> </li>
+              {% if (lastArticles.length) %}
+              {% for article in lastArticles %}
+              <li><a href="{{ '/news/' + article._id }}"><span class="icon1"> </span> {{article.title}} by <label>{{
+                article.user.name || article.user.username }}</label></a></li>
+              {% endfor %}
+              {% else %}
+              <li><a href="/news"><span class="icon1"></span> There are no posts</a></li>
+              {% endif %}
             </ul>
           </div>
           <div class="top-footer-grid">
-            <h3>Язык</h3>
+            <h3>{{__('language')}}</h3>
             <ul class="latest-post">
-              <li><a href="{{req.path}}?locale=ru"><span class="icon1"></span>Русский</a></li>
-              <li><a href="{{req.path}}?locale=en"><span class="icon2"></span>Ангийский</a></li>
+              <li><a href="{{req.path}}?locale=ru"><span class="lang-ru "></span>{{__('russian')}}</a></li>
+              <li><a href="{{req.path}}?locale=en"><span class="lang-en"></span>{{__('english')}}</a></li>
             </ul>
           </div>
           <div class="clear"> </div>
@@ -114,7 +115,7 @@
       <div class="bottom-footer">
         <div class="container">
           <div class="bottom-footer-left">
-            <p>&#169; Copyright 2015 </p>
+            <p>&#169; {{__('copyright')}}</p>
           </div>
           <div class="clear"> </div>
         </div>

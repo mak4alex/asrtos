@@ -8,5 +8,9 @@
   "welcome": "Welcome",
   "english": "English",
   "russian": "Russian",
-  "language": "Language"
+  "language": "Language",
+  "contacts": "Contacts",
+  "copyright": "Copyright",
+  "address": "Address",
+  "latest_posts": "Latest posts"
 }

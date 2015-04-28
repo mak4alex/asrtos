@@ -95,7 +95,8 @@ UserSchema.path('email').validate(function (email, fn) {
 
 UserSchema.path('hashed_password').validate(function (hashed_password) {
   if (this.skipValidation()) return true;
-  return 6 < hashed_password.length  && hashed_password.length < 25;
+  console.log("Pssword length: " + hashed_password.length);
+  return 6 < hashed_password.length && hashed_password.length < 25;
 }, 'Password has to be 7-24 letters');
 
 
