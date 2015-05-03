@@ -1,5 +1,4 @@
 {% extends "../layouts/main.html" %}
-
 {% block title %}Новости{% endblock %}
 
 {% block content %}
@@ -11,6 +10,7 @@
 				<div class="container">
 					<div class="breadcrumbs-left">
             <h1>Новости</h1>
+            <a href="/news/new" class="btn btn-primary">Add news</a>
 					</div>
 					<div class="breadcrumbs-right">
 						<ul>
@@ -26,16 +26,12 @@
 		<div class="blog">
 				<div class="container">
 					<div class="blog-left">
-            <div class="blog-left-head">
-              <a href="/news/new" class="btn btn-primary">Add news</a>
-            </div>
 						<div class="blog-artical-grids">
               {% if (articles.length) %}
-              {% for article in articles %}
-              {% include 'article.html' %}
+                {% for article in articles %}
+                {% include 'article.html' %}
               {% endfor %}
             </div>
-
             {% if (pages > 1) %}
             <div class="blog-artical-pagenate">
               <ul class="pagination">
@@ -46,20 +42,13 @@
             </div>
             {% endif %}
             {% else %}
-            <h4 class="muted">
-              No articles.&nbsp;
-              <a href="/news/new">create one</a>
-            </h4>
+              <h4 class="muted">
+                No articles.&nbsp;
+                <a href="/news/new">create one</a>
+              </h4>
             {% endif %}
 					</div>
 					<div class="blog-right">
-
-						<!----start-accordinatio-files--->
-            <script src="/js/vallenato.js" type="text/javascript" charset="utf-8"></script>
-            <link rel="stylesheet" href="/css/vallenato.css" type="text/css" media="screen" charset="utf-8">
-						<!----start-accordinatio-files--->
-
-
             <!----start-comments---->
 						<div class="blog-comments">
 							<div class="blog-right-head">
@@ -67,37 +56,24 @@
 								<h3>Last Comments</h3>
 							</div>
 							<div class="blog-comment-grids">
-								<div class="blog-comment-grid">
-									<div class="blog-comment-grid-left">
-                    <img src="/img/admin-pic1.jpg" alt="">
-									</div>
-									<div class="blog-comment-grid-right">
-										<a href="#">Endy Brown</a>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-								<div class="blog-comment-grid">
-									<div class="blog-comment-grid-left">
-                    <img src="/img/admin-pic2.jpg" alt="">
-									</div>
-									<div class="blog-comment-grid-right">
-										<a href="#">Millana Watson</a>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-								<div class="blog-comment-grid">
-									<div class="blog-comment-grid-left">
-                    <img src="/img/admin-pic3.jpg" alt="">
-									</div>
-									<div class="blog-comment-grid-right">
-										<a href="#">Andrew Haching</a>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
+                {% for comment in lastComments %}
+                {% if (comment.user.name) %}
+                {% set name = comment.user.name %}
+                {% else %}
+                {% set name = comment.user.username %}
+                {% endif %}
 
+                  <div class="blog-comment-grid">
+                    <div class="blog-comment-grid-left">
+                      <img src="/img/user.png" alt="user">
+                    </div>
+                    <div class="blog-comment-grid-right">
+                      <a href="{{ '/users/' + comment.user._id }}">{{ name }}</a>
+                      <p>{{comment.body}}</p>
+                    </div>
+                    <div class="clearfix"> </div>
+                  </div>
+                {%endfor%}
               </div>
 						</div>
 						<!----start-Comments---->
@@ -106,5 +82,4 @@
 				</div>
 			</div>
 	<!---- container ---->
-
 {% endblock %}

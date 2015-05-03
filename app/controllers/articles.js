@@ -27,11 +27,12 @@ exports.index = function (req, res) {
 
   Article.list(options, function (err, articles) {
     if (err) return res.render('500');
-    console.log(articles);
+
+    var lastComments = Article.listLastComments(articles);
     Article.count().exec(function (err, count) {
       res.render('news/index', {
-        title: 'Articles',
         articles: articles,
+        lastComments: lastComments,
         page: page + 1,
         pages: Math.ceil(count / perPage)
       });

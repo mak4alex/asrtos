@@ -13,14 +13,14 @@ module.exports = new VKontakteStrategy({
     },
     function(accessToken, refreshToken, profile, done) {
       var options = {
-        criteria: { 'vkontakteId': profile.id }
+        criteria: { 'vkontakte.id': profile.id }
       };
       User.load(options, function (err, user) {
         if (err) return done(err);
         if (!user) {
           user = new User({
             name: profile.displayName,
-
+            email: profile.emails[0].value,
             username: profile.username,
             provider: 'vkontakte',
             vkontakte: profile._json

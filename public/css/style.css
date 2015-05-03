@@ -893,7 +893,9 @@ a.viewmore-s:hover{
 }
 .blog-comment-grid-right{
 	float: right;
+
 	width: 70%;
+    word-wrap: break-word;
 }
 .blog-comment-grid-right a{
 	color: #404040;

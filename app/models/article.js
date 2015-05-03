@@ -119,6 +119,23 @@ ArticleSchema.statics = {
         .limit(options.perPage)
         .skip(options.perPage * options.page)
         .exec(cb);
+  },
+
+  listLastComments: function (articles) {
+    var comments = [];
+    for(var article in articles) {
+      var tempCom = articles[article].comments;
+      comments = comments.concat(tempCom)
+    }
+
+    comments.sort(function(a, b){
+      return b.createdAt - a.createdAt;
+    });
+
+    console.log(comments);
+    var length = comments.length > 4 ? 5 : comments.length;
+
+    return comments.slice(0, length);
   }
 };
 

@@ -20,55 +20,64 @@ exports.getService4 = function (req, res) {
 };
 
 exports.getService5 = function (req, res) {
-
+  var page = (req.query.page > 0 ? req.query.page : 1) - 1;
+  var perPage = 4;
   var options = {
-    user: {
-      _id: req.user.id
+    perPage: perPage,
+    page: page,
+    criteria: {
+      user: {
+        _id: req.user.id
+      }
     }
   };
-
 
   Carriage.list(options, function (err, carriages) {
     if (err) return res.render('500');
 
-    console.log(carriages);
-    res.render('services/5', {
-      carriages: carriages
+    Carriage.count().exec(function (err, count) {
+      res.render('services/5', {
+        carriages: carriages,
+        page: page + 1,
+        pages: Math.ceil(count / perPage)
+      });
     });
   });
 };
 
 exports.createCarriage = function (req, res) {
-  console.log("Carriage id:" + req.body.id);
-  Carriage.findOne({_id: req.body.id}, function (err, carriage) {
-    //if (err) console(err);
+  console.log("Create carriage id:" + req.body.id);
+  Carriage.findOne({_id: req.body.id}, function (err, car) {
+ //   if (err) console("Carriage not found");
 
-    console.log(carriage);
-    var carriage = carriage;
+    var carriage = car;
     if (!carriage) {
       carriage = new Carriage(req.body);
       carriage.user = req.user;
     }
-    else
+    else {
       carriage = extend(carriage, req.body);
+    }
 
     carriage.calculate();
     carriage.save(function (err) {
-      if (!err) {
-        return res.json(carriage);
+      if (err) {
+        req.flash('error', 'All fields must be filled.');
+      } else {
+        req.flash('success', 'Carriage successfully added.');
       }
-      console.log(err);
-
+      console.log("save carriage");
+      return res.json({});
     });
   });
 };
 
 exports.deleteCarriage = function (req, res) {
-  console.log("Carriage id:" + req.body.id);
+  console.log("Deleted carriage id:" + req.body.id);
   Carriage.findOne({_id: req.body.id}, function (err, carriage) {
     carriage.remove(function () {
+      res.json({id: req.body.id});
     });
-    res.json({id: req.body.id});
   });
 };
 

@@ -17,7 +17,7 @@
       <div class="blog-artical-grid-pic-info-admin">
         <div class="blog-artical-grid-pic-info-admin-left">
           <ul>
-            <li><p>Written by <a href="#">{{ article.user.name || article.user.username }}</a></p></li>
+            <li><p>Written by <a href="{{ '/users/' + article.user._id}}">{{ article.user.name || article.user.username }}</a></p></li>
           </ul>
         </div>
         <div class="blog-artical-grid-pic-info-admin-right">

@@ -9,21 +9,27 @@
 {% endblock %}
 
 {% block content %}
-
 {% include "../includes/navigation.html" with { service: "Расчет стоимости перевозки" } %}
-
 <div class="container">
   <div class="services-wel wel-head text-center">
     <h3>Расчет стоимости перевозки</h3>
-
     <p>Расчет оптимальной партии поставок, минимальных затрат и режима поставок по методу Уилсона.</p>
   </div>
-  {% for carriage in carriages%}
-  {% include '../includes/carriage-form.html' %}
-  <hr/>
-  {% endfor %}
-  {% include '../includes/carriage-form.html' %}
 
+  <div id="carriage-container" >
+    {% include '../includes/carriage-form.html' %}
+
+    {% for carriage in carriages%}
+      {% include '../includes/carriage-form.html' %}
+    {% endfor %}
+
+    <div class="blog-artical-pagenate">
+      <ul class="pagination">
+        {% autoescape false %}
+        {{ createPagination(pages, page) }}
+        {% endautoescape %}
+      </ul>
+    </div>
+  </div>
 </div>
-
 {% endblock %}

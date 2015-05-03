@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
+{% extends '../layouts/main.html' %}
+{% block title %}Выбор месторасположения оптового склада{% endblock %}
+{% block head %}
+  {% parent %}
+  <link rel="stylesheet" href="/css/service-4.css">
+  <script src="/js/service-4.js"></script>
+{% endblock %}
+{% block content %}
+  {% include "../includes/navigation.html" with { service: "Выбор месторасположения оптового склада" } %}
+  <div class="container">
+    <div class="services-wel wel-head text-center">
+      <h3>Выбор месторасположения оптового склада</h3>
+      <p>Определение оптимального месторасположения склада, обслуживающего точки поставки.</p>
+    </div>
 
-</body>
-</html>
+
+  </div>
+{% endblock %}

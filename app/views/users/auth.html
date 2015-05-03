@@ -4,21 +4,22 @@
 
 {% block content %}
   <div class="container">
-    <a href="/auth/google">
-      <img src="/img/google.png" alt="google auth">
-    </a>
-    <a href="/auth/vkontakte">
-      <img src="/img/vk.jpg" alt="vkontanke auth">
-    </a>
-
-    <br>
-      <h2>OR</h2>
-    <br>
     <p>{{ message }}</p>
-
-    <div class="login">
-      {% block auth %}
-      {% endblock %}
+    <div class="row">
+      <div class="col-md-3 text-center">
+        <h3>{{__('login_with')}}</h3>
+        <a href="/auth/google">
+          <img src="/img/google.png" alt="google auth">
+        </a>
+        <a href="/auth/vkontakte">
+          <img src="/img/vk.jpg" alt="vkontanke auth">
+        </a>
+      </div>
+      <div class=" col-md-9 login">
+        <h3 class="text-center">{{__('login_through_site')}}</h3>
+        {% block auth %}
+        {% endblock %}
+      </div>
     </div>
   </div>
 {% endblock %}
