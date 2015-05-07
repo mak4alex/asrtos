@@ -24,11 +24,11 @@ module.exports = {
   google: {
     clientID: process.env.GOOGLE_CLIENTID,
     clientSecret: process.env.GOOGLE_SECRET,
-    callbackURL: "http://localhost:5000/auth/google/callback"
+    callbackURL: "https://asrtos.herokuapp.com/auth/google/callback"
   },
   vkontakte: {
-    clientID: process.env.VKONTAKTE_CLIENTID,
-    clientSecret: process.env.VKONTAKTE_SECRET,
-    callbackURL: "http://localhost:5000/auth/vkontakte/callback"
+    clientID: 4908888,
+    clientSecret: 'QCa7Dl6ejPk1zgtMIdI4',
+    callbackURL: "https://asrtos.herokuapp.com/auth/vkontakte/callback"
   }
 };
