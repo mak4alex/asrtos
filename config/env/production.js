@@ -19,7 +19,7 @@ if (fs.existsSync(envFile)) {
 /** * Expose */
 
 module.exports = {
-  db: 'mongodb://localhost/noodjs_prod',
+  db: 'mongodb://user:123456@ds033831.mongolab.com:33831/asrtos',
   port: 5000,
   google: {
     clientID: process.env.GOOGLE_CLIENTID,
