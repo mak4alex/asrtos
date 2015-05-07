@@ -93,10 +93,9 @@ UserSchema.path('email').validate(function (email, fn) {
 }, 'Email already exists');
 
 
-UserSchema.path('hashed_password').validate(function (hashed_password) {
+UserSchema.path('hashed_password').validate(function () {
   if (this.skipValidation()) return true;
-  console.log("Pssword length: " + hashed_password.length);
-  return 6 < hashed_password.length && hashed_password.length < 25;
+  return 6 < this.password.length && this.password.length < 25;
 }, 'Password has to be 7-24 letters');
 
 

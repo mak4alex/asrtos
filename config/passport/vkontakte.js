@@ -20,7 +20,7 @@ module.exports = new VKontakteStrategy({
         if (!user) {
           user = new User({
             name: profile.displayName,
-            email: profile.emails[0].value,
+            email: profile.email,
             username: profile.username,
             provider: 'vkontakte',
             vkontakte: profile._json
