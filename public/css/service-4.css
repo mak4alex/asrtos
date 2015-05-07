@@ -1,0 +1,9 @@
+.slick-prev:before, .slick-next:before{
+    color:#222222;
+}
+
+.point-thumbnail {
+    border: 3px groove #222222;
+    padding: 10px;
+    height: 100%;
+}

@@ -85,6 +85,11 @@ module.exports = function (app, passport) {
   app.post('/services/1', auth.requiresLogin, service.handleService1);
   app.post('/services/3', auth.requiresLogin, service.handleService3);
 
+  app.post('/services/4', auth.requiresLogin, service.createPoint);
+  app.post('/services/4/handle', auth.requiresLogin, service.handlePoints);
+  app.delete('/services/4', auth.requiresLogin, service.deletePoint);
+
+
   app.post('/services/5', auth.requiresLogin, service.createCarriage);
   app.delete('/services/5', auth.requiresLogin, service.deleteCarriage);
 

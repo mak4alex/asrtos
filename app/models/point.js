@@ -1,6 +1,7 @@
 /**  * Module dependencies.  */
 var mongoose = require('mongoose');
 
+
 var Schema = mongoose.Schema;
 
 /** * Point Schema */
@@ -13,6 +14,11 @@ var PointSchema = new Schema({
   address: {
     type: String,
     default: "",
+    trim: true
+  },
+  supply: {
+    type: Number,
+    default: 0,
     trim: true
   },
   rate: {
@@ -43,6 +49,7 @@ var PointSchema = new Schema({
 /**  * Validations */
 PointSchema.path('title').required(true, 'Point title cannot be blank');
 PointSchema.path('rate').required(true, 'Point rate cannot be blank');
+PointSchema.path('supply').required(true, 'Point supply cannot be blank');
 PointSchema.path('latitude').required(true, 'Point latitude cannot be blank');
 PointSchema.path('longitude').required(true, 'Point longitude cannot be blank');
 PointSchema.path('user').required(true, 'Point must has a user');
@@ -71,12 +78,33 @@ PointSchema.statics = {
       .exec(cb);
   },
 
-  locate: function ( points ) {
-    var store = {};
-    for(var point in points) {
+  locate: function ( res, pointsId ) {
+    var store = {
+      latitude: 0,
+      longitude: 0
+    };
+    var latNumer = 0;
+    var latDenom = 0;
+    var longNumer = 0;
+    var longDenom = 0;
+    var temp = 0;
 
-    }
-    return store;
+    this.find( {}, function(err, points) {
+      for(var i in points) {
+        if(pointsId.indexOf(points[i]._id.toString()) != -1) {
+          //console.log(points[i]);
+          temp = points[i].supply * points[i].rate;
+          latNumer += temp * points[i].latitude;
+          latDenom += temp;
+          longNumer += temp * points[i].longitude;
+          longDenom += temp;
+        }
+      }
+      store.latitude = latNumer / latDenom;
+      store.longitude = longNumer / longDenom;
+      console.log(store);
+      res.json(store);
+    });
   }
 };
 

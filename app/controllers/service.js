@@ -1,6 +1,7 @@
 /** * Module dependencies. */
 var mongoose = require('mongoose');
 var Carriage = mongoose.model('Carriage');
+var Point = mongoose.model('Point');
 var extend = require('util')._extend;
 
 exports.getService1 = function(req, res){
@@ -16,8 +17,43 @@ exports.getService3 = function(req, res){
 };
 
 exports.getService4 = function (req, res) {
-  res.render('services/4');
+  Point.find( { user: { _id: req.user.id } }, function (err, points) {
+    if (err) return res.render('500');
+    res.render('services/4', {
+      points: points
+    });
+  });
 };
+
+
+exports.createPoint = function (req, res) {
+  console.log("Point carriage id:" + req.body.id);
+
+  var point = new Point(req.body);
+  point.user = req.user;
+  console.log(point);
+  point.save(function (err) {
+    if (err) console.log(err);
+    console.log("save point");
+    return res.json({});
+  });
+};
+
+exports.deletePoint = function (req, res) {
+  console.log("Deleted point id:" + req.body.id);
+  Point.findOne({_id: req.body.id}, function (err, point) {
+    point.remove(function () {
+      res.json({id: req.body.id});
+    });
+  });
+};
+
+
+exports.handlePoints = function (req, res) {
+  var data = req.body;
+  var result = Point.locate(res, data.ids);
+};
+
 
 exports.getService5 = function (req, res) {
   var page = (req.query.page > 0 ? req.query.page : 1) - 1;
@@ -35,7 +71,8 @@ exports.getService5 = function (req, res) {
   Carriage.list(options, function (err, carriages) {
     if (err) return res.render('500');
 
-    Carriage.count().exec(function (err, count) {
+    Carriage.count(options.criteria).exec(function (err, count) {
+      console.log("count: " + count);
       res.render('services/5', {
         carriages: carriages,
         page: page + 1,
@@ -61,11 +98,7 @@ exports.createCarriage = function (req, res) {
 
     carriage.calculate();
     carriage.save(function (err) {
-      if (err) {
-        req.flash('error', 'All fields must be filled.');
-      } else {
-        req.flash('success', 'Carriage successfully added.');
-      }
+      if (err) console.log(err);
       console.log("save carriage");
       return res.json({});
     });
@@ -85,7 +118,6 @@ exports.deleteCarriage = function (req, res) {
 exports.getService6 = function (req, res) {
   res.render('services/6');
 };
-
 
 exports.handleService1 = function(req, res){
   var data = req.body;

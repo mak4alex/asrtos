@@ -20,6 +20,7 @@ if (fs.existsSync(envFile)) {
 
 module.exports = {
   db: 'mongodb://localhost/noodjs_dev',
+  port: 3000,
   google: {
     clientID: process.env.GOOGLE_CLIENTID,
     clientSecret: process.env.GOOGLE_SECRET,

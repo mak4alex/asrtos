@@ -2,17 +2,54 @@
 {% block title %}Выбор месторасположения оптового склада{% endblock %}
 {% block head %}
   {% parent %}
+  <link rel="stylesheet" type="text/css" href="/vendor/bower_components/slick.js/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="/vendor/bower_components/slick.js/slick/slick-theme.css"/>
+  <script type="text/javascript" src="/vendor/bower_components/slick.js/slick/slick.js"></script>
   <link rel="stylesheet" href="/css/service-4.css">
   <script src="/js/service-4.js"></script>
 {% endblock %}
 {% block content %}
   {% include "../includes/navigation.html" with { service: "Выбор месторасположения оптового склада" } %}
-  <div class="container">
+  <div class="container" id="data">
     <div class="services-wel wel-head text-center">
       <h3>Выбор месторасположения оптового склада</h3>
       <p>Определение оптимального месторасположения склада, обслуживающего точки поставки.</p>
     </div>
-
-
+    <div id="accordion">
+      <h3>Добавить точку поставки</h3>
+      <div class="row">
+        <div class="col-sx-12 col-md-6">
+          {% include '../includes/point-form.html' %}
+        </div>
+      </div>
+    </div>
+    <h2 class="text-center">Точки поставки</h2>
+    <div id="points-slider" >
+      {% for point in points%}
+        <div name="point" class="point-thumbnail">
+          <p>Название: {{point.title}}</p>
+          <p>Адрес: {{point.address}}</p>
+          <p>Объем поставок: <span>{{point.supply}}</span></p>
+          <p>Тариф: <span>{{point.rate}}</span></p>
+          <p>Координата Х: <span>{{point.latitude}}</span></p>
+          <p>Координата У: <span>{{point.longitude}}</span></p>
+          <form name="delete-form" class="form-inline" method="post" action="/services/4" data-remote="true">
+            <input type="hidden" name="_csrf" value="{{ csrf_token }}">
+            <input type="hidden" name="id" value="{{point.id}}">
+            <div class="form-group">
+              <label for="{{point.id + 'point-selected' }}" class="btn btn-primary">
+                <input id="{{point.id + 'point-selected' }}" name="point-selected" value="{{point.id}}" type="checkbox" autocomplete="off" > Отметить
+              </label>
+              <button name="delete" type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+            </div>
+          </form>
+        </div>
+      {% endfor %}
+    </div>
+    <h4>Координаты оптового склада для выбраных точек</h4>
+    <button  id="get-result" type="button" class="btn btn-primary">Подсчитать</button><br/>
+    Результат:<br/>
+    Координата Х: <span id="result-latitude"></span>.<br/>
+    Координата У: <span id="result-longitude"></span>.
   </div>
 {% endblock %}
