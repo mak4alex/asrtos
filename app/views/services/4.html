@@ -10,7 +10,7 @@
 {% endblock %}
 {% block content %}
   {% include "../includes/navigation.html" with { service: "Выбор месторасположения оптового склада" } %}
-  <div class="container" id="data">
+  <div class="container">
     <div class="services-wel wel-head text-center">
       <h3>Выбор месторасположения оптового склада</h3>
       <p>Определение оптимального месторасположения склада, обслуживающего точки поставки.</p>
@@ -24,27 +24,29 @@
       </div>
     </div>
     <h2 class="text-center">Точки поставки</h2>
-    <div id="points-slider" >
-      {% for point in points%}
-        <div name="point" class="point-thumbnail">
-          <p>Название: {{point.title}}</p>
-          <p>Адрес: {{point.address}}</p>
-          <p>Объем поставок: <span>{{point.supply}}</span></p>
-          <p>Тариф: <span>{{point.rate}}</span></p>
-          <p>Координата Х: <span>{{point.latitude}}</span></p>
-          <p>Координата У: <span>{{point.longitude}}</span></p>
-          <form name="delete-form" class="form-inline" method="post" action="/services/4" data-remote="true">
-            <input type="hidden" name="_csrf" value="{{ csrf_token }}">
-            <input type="hidden" name="id" value="{{point.id}}">
-            <div class="form-group">
-              <label for="{{point.id + 'point-selected' }}" class="btn btn-primary">
-                <input id="{{point.id + 'point-selected' }}" name="point-selected" value="{{point.id}}" type="checkbox" autocomplete="off" > Отметить
-              </label>
-              <button name="delete" type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-            </div>
-          </form>
-        </div>
-      {% endfor %}
+    <div id="reload">
+      <div id="points-slider" >
+        {% for point in points%}
+          <div name="point" class="point-thumbnail">
+            <p>Название: {{point.title}}</p>
+            <p>Адрес: {{point.address}}</p>
+            <p>Объем поставок: <span>{{point.supply}}</span></p>
+            <p>Тариф: <span>{{point.rate}}</span></p>
+            <p>Координата Х: <span>{{point.latitude}}</span></p>
+            <p>Координата У: <span>{{point.longitude}}</span></p>
+            <form name="delete-form" class="form-inline" method="post" action="/services/4" data-remote="true">
+              <input type="hidden" name="_csrf" value="{{ csrf_token }}">
+              <input type="hidden" name="id" value="{{point.id}}">
+              <div class="form-group">
+                <label for="{{point.id + 'point-selected' }}" class="btn btn-primary">
+                  <input id="{{point.id + 'point-selected' }}" name="point-selected" value="{{point.id}}" type="checkbox" autocomplete="off" > Отметить
+                </label>
+                <button name="delete" type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+              </div>
+            </form>
+          </div>
+        {% endfor %}
+      </div>
     </div>
     <h4>Координаты оптового склада для выбраных точек</h4>
     <button  id="get-result" type="button" class="btn btn-primary">Подсчитать</button><br/>

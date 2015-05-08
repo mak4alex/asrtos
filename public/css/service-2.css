@@ -1,9 +1,9 @@
 #sortable1, #sortable2 {
     border: 3px solid #222222;
-    min-height: 100px;
+    min-height: 600px;
     list-style-type: none;
     margin: 1%;
-    padding: 10px;
+    padding: 5px;
 }
 
 #sortable1 li, #sortable2 li {

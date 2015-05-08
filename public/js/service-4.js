@@ -1,40 +1,36 @@
 $(document).ready(handler);
 
 function handler() {
-  console.log("handler");
-
   $("#get-result").click(function(){
-    console.log("get-result");
     var points = $("div[name=point]");
-
     var req = {
       _csrf: "",
       ids: []
     };
     req._csrf = $("input[name=_csrf]").val();
-
     for(var i = 0; i < points.length; ++i) {
       if ($("input[name=point-selected]", points[i]).is(':checked')) {
         req.ids.push( $("input[name=id]", points[i]).val() );
       }
     }
-    console.log(req);
-    $.ajax({
-      type: "POST",
-      url: "/services/4/handle",
-      dataType: 'json',
-      data: req,
-      success: function(data){
-        console.log(data.latitude);
-        $("#result-latitude").text( data.latitude);
-        $("#result-longitude").text( data.longitude);
 
-
-      },
-      error: function() {
-        alert("Server error.");
-      }
-    });
+    if( req.ids.length ) {
+      $.ajax({
+        type: "POST",
+        url: "/services/4/handle",
+        dataType: 'json',
+        data: req,
+        success: function (data) {
+          $("#result-latitude").text(data.latitude);
+          $("#result-longitude").text(data.longitude);
+        },
+        error: function () {
+          alert("Server error.");
+        }
+      });
+    } else {
+      alert("Select at least 1 point");
+    }
   });
 
   $(function() {
@@ -49,7 +45,7 @@ function handler() {
     });
   });
 
-  $('#points-slider').slick({
+  var slickConfig = {
     dots: true,
     customPaging: function(slider, i) {
       return '<button class="tab">' + (i + 1) + '</button>';
@@ -84,21 +80,21 @@ function handler() {
         }
       }
     ]
-  });
-
+  };
+  var slider = $('#points-slider');
+  slider.slick(slickConfig);
 
   $("form[name=create-form]").submit(function (e) {
-    e.preventDefault(); // prevent normal submit
+    e.preventDefault();
     $.ajax({
       type: "POST",
       url: $(this).attr("action"),
       dataType: 'json',
       data: $(this).serialize(),
       success: function () {
-        $('#data').load(document.URL +  ' #data',function() {
-          handler();
+        $('#reload').load(document.URL +  ' #reload', function() {
+          $('#points-slider').slick(slickConfig);
         });
-
       },
       error: function () {
         alert("Server error");
@@ -107,22 +103,24 @@ function handler() {
   });
 
 
-  $("form[name=delete-form]").submit(function (e) {
-    e.preventDefault(); // prevent normal submit
-    console.log($(this).serialize());
+  $("form[name=delete-form]").submit(deletePoint);
+
+  function deletePoint(e) {
+    e.preventDefault();
     $.ajax({
       type: "DELETE",
       url: $(this).attr("action"),
       dataType: 'json',
       'data': $(this).serialize(),
       success: function () {
-        $('#data').load(document.URL +  ' #data', handler);
-
+        $('#reload').load(document.URL +  ' #reload', function() {
+          $("form[name=delete-form]").submit(deletePoint);
+          $('#points-slider').slick(slickConfig);
+        });
       },
       error: function () {
         alert("Server error.");
       }
     });
-  });
-
+  }
 }

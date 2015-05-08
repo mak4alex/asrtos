@@ -5,6 +5,7 @@
 {% block head %}
 {% parent %}
 <link rel="stylesheet" href="/css/service-2.css">
+<script src="/vendor/bower_components/jquery-ui-touch-punch-master/jquery.ui.touch-punch.js"></script>
 <script src="/js/service-2.js"></script>
 {% endblock %}
 
@@ -19,16 +20,13 @@
       параметрах площадей, развитости инфраструктуры, включая инженерные коммуникации. Сейчас принято
       различать складские помещения по классам «A», «B», «C», «D».
     </p>
-    <br/>
-
   </div>
   <p class="lead text-center">Перетащите в контейнер вашего склада характеристики, которыми обладает ваш склад.</p>
   <h3>Класс вашего склада: <span id="class-type">нет характеристик</span>.</h3>
-  <div class="container">
-    <div class="col-md-6 top-grid">
+  <div class="row">
+    <div class="col-xs-6 col-md-6 top-grid">
       <h4>Характеристики</h4>
       <ul id="sortable1" class="connectedSortable">
-
         <li class="ui-state-default" value="3">Ж/Д ветка</li>
         <li class="ui-state-default" value="1">Наличие системы вентиляции</li>
         <li class="ui-state-default" value="1">Регулируемый температурный режим</li>
@@ -42,19 +40,14 @@
         <li class="ui-state-default" value="3">Высокие потолки, позволяющие установку многоуровневого стеллажного оборудования</li>
         <li class="ui-state-default" value="2">Пандус для разгрузки автотранспорта</li>
         <li class="ui-state-default" value="1">Охрана по периметру территории</li>
-
       </ul>
     </div>
-    <div class="col-md-6 top-grid">
+    <div class="col-xs-6 col-md-6 top-grid">
       <h4>Ваш склад</h4>
       <ul id="sortable2" class="connectedSortable">
-
       </ul>
     </div>
-    <div class="clearfix"> </div>
   </div>
-
-
+  <div class="clearfix"></div>
 </div>
-
 {% endblock %}
