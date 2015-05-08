@@ -34,5 +34,6 @@ require('./config/routes')(app, passport);
 
 app.listen(port);
 console.log('Express app started on port ' + port);
+console.log('In running mode: ' + process.env.NODE_ENV);
 
 module.exports = app;
