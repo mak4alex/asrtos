@@ -202,6 +202,7 @@ body input[type="text"],body input[type="submit"],body textarea{
 .latest-news-grid{
 	float:left;
 	width:48%;
+    word-wrap: break-word;
 }
 .latest-news-grid img{
 	width:100%;
@@ -304,6 +305,7 @@ a.news-btn:hover{
 	width:31.33%;
 	float:left;
 	margin-right:2%;
+    word-wrap: break-word;
 }
 .top-footer-grid:nth-child(3){
 	margin-right:0;
@@ -2055,3 +2057,7 @@ a.viewmore-s:hover{
 	}
 }
 /*------ Responsive-design ------*/
+
+.break-word {
+    word-wrap: break-word;
+}

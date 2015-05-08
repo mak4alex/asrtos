@@ -12,40 +12,46 @@
 {% block content %}
 
 {% include "../includes/navigation.html" with { service: "Определение класса склада" } %}
-<div class="container">
-  <div class="wel-head text-center">
-    <h3><span>Класс</span> оптового склада</h3>
-    <p class="text-left">
-      По мере развития рынка наибольшую известность получила классификация складов, основанная на технических
-      параметрах площадей, развитости инфраструктуры, включая инженерные коммуникации. Сейчас принято
-      различать складские помещения по классам «A», «B», «C», «D».
-    </p>
-  </div>
-  <p class="lead text-center">Перетащите в контейнер вашего склада характеристики, которыми обладает ваш склад.</p>
-  <h3>Класс вашего склада: <span id="class-type">нет характеристик</span>.</h3>
-  <div class="row">
-    <div class="col-xs-6 col-md-6 top-grid">
-      <h4>Характеристики</h4>
-      <ul id="sortable1" class="connectedSortable">
-        <li class="ui-state-default" value="3">Ж/Д ветка</li>
-        <li class="ui-state-default" value="1">Наличие системы вентиляции</li>
-        <li class="ui-state-default" value="1">Регулируемый температурный режим</li>
-        <li class="ui-state-default" value="2">Ровный бетонный пол с антипылевым покрытием</li>
-        <li class="ui-state-default" value="3">Автономная электроподстанция и тепловой узел</li>
-        <li class="ui-state-default" value="2">Оптико-волоконные телекоммуникации</li>
-        <li class="ui-state-default" value="3">Расположение вблизи центральных магистралей</li>
-        <li class="ui-state-default" value="1">Наличие офисных помещений при складе</li>
-        <li class="ui-state-default" value="2">Профессиональная система управления</li>
-        <li class="ui-state-default" value="2">Телекоммуникации</li>
-        <li class="ui-state-default" value="3">Высокие потолки, позволяющие установку многоуровневого стеллажного оборудования</li>
-        <li class="ui-state-default" value="2">Пандус для разгрузки автотранспорта</li>
-        <li class="ui-state-default" value="1">Охрана по периметру территории</li>
-      </ul>
+<div class="container-fluid">
+  <div class="container">
+    <div class="wel-head text-center">
+      <h3><span>Класс</span> оптового склада</h3>
+      <p class="text-left">
+        По мере развития рынка наибольшую известность получила классификация складов, основанная на технических
+        параметрах площадей, развитости инфраструктуры, включая инженерные коммуникации. Сейчас принято
+        различать складские помещения по классам «A», «B», «C», «D».
+      </p>
     </div>
-    <div class="col-xs-6 col-md-6 top-grid">
-      <h4>Ваш склад</h4>
-      <ul id="sortable2" class="connectedSortable">
-      </ul>
+    <p class="lead text-center">Перетащите в контейнер вашего склада характеристики, которыми обладает ваш склад.</p>
+    <h3>Класс вашего склада: <span id="class-type">нет характеристик</span>.</h3>
+  </div>
+  <div class="row break-word">
+    <div class="row-same-height row-full-height">
+      <div class="col-xs-0 col-md-1"></div>
+      <div class="col-xs-6 col-md-5 top-grid col-full-height">
+        <h4>Характеристики</h4>
+        <ul id="sortable1" class="connectedSortable">
+          <li class="ui-state-default" value="3">Ж/Д ветка</li>
+          <li class="ui-state-default" value="1">Наличие системы вентиляции</li>
+          <li class="ui-state-default" value="1">Регулируемый температурный режим</li>
+          <li class="ui-state-default" value="2">Ровный бетонный пол с антипылевым покрытием</li>
+          <li class="ui-state-default" value="3">Автономная электроподстанция и тепловой узел</li>
+          <li class="ui-state-default" value="2">Оптико-волоконные телекоммуникации</li>
+          <li class="ui-state-default" value="3">Расположение вблизи центральных магистралей</li>
+          <li class="ui-state-default" value="1">Наличие офисных помещений при складе</li>
+          <li class="ui-state-default" value="2">Профессиональная система управления</li>
+          <li class="ui-state-default" value="2">Телекоммуникации</li>
+          <li class="ui-state-default" value="3">Высокие потолки, позволяющие установку многоуровневого стеллажного оборудования</li>
+          <li class="ui-state-default" value="2">Пандус для разгрузки автотранспорта</li>
+          <li class="ui-state-default" value="1">Охрана по периметру территории</li>
+        </ul>
+      </div>
+      <div class="col-xs-6 col-md-5 top-grid col-full-height">
+        <h4>Ваш склад</h4>
+        <ul id="sortable2" class="connectedSortable">
+        </ul>
+      </div>
+      <div class="col-xs-0 col-md-1"></div>
     </div>
   </div>
   <div class="clearfix"></div>

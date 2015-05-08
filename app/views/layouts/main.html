@@ -89,11 +89,11 @@
             <ul class="latest-post">
               {% if (lastArticles.length) %}
               {% for article in lastArticles %}
-              <li><a href="{{ '/news/' + article._id }}"><span class="icon1"> </span> {{article.title}} by <label>{{
+                <li><a href="{{ '/news/' + article._id }}"><span class="icon1"> </span> {{article.title}} by <label>{{
                 article.user.name || article.user.username }}</label></a></li>
               {% endfor %}
               {% else %}
-              <li><a href="/news"><span class="icon1"></span> There are no posts</a></li>
+                <li><a href="/news"><span class="icon1"></span> There are no posts</a></li>
               {% endif %}
             </ul>
           </div>

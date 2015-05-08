@@ -48,6 +48,10 @@ ArticleSchema.path('title').required(true, 'Article title cannot be blank');
 ArticleSchema.path('body').required(true, 'Article body cannot be blank');
 
 
+ArticleSchema.path('title').validate(function (title) {
+  return 4 < title.length && title.length < 25;
+}, 'Title has to be 5-24 letters');
+
 /** * Pre-save hook */
 
 ArticleSchema.pre('save', function (next) {
