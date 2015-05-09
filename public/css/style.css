@@ -149,6 +149,25 @@ body input[type="text"],body input[type="submit"],body textarea{
 	display:inline-block;
 	padding:0 0 0.3em 0;
 }
+
+.wel-head h4{
+    text-transform:uppercase;
+    font-weight:700;
+    font-size:1.7em;
+    border-bottom:3px solid #EC005F;
+    display:inline-block;
+    padding:0 0 0.3em 0;
+}
+
+.wel-head h5{
+    text-transform:uppercase;
+    font-weight:700;
+    font-size:1.2em;
+    border-bottom:3px solid #EC005F;
+    display:inline-block;
+    padding:0 0 0.3em 0;
+}
+
 .wel-head h3 span{
 	color:#EC005F;
 }
@@ -2061,3 +2080,13 @@ a.viewmore-s:hover{
 .break-word {
     word-wrap: break-word;
 }
+
+.comment {
+    background-color: #F0F0F0;
+    border: 1px groove #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #606060;
+    margin-bottom: 3%;
+    padding: 3%;
+}
+

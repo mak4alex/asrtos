@@ -109,7 +109,7 @@ module.exports = function (app, passport) {
   app.param('commentId', comments.load);
   app.post('/news/:id/comments', auth.requiresLogin, comments.create);
   app.get('/news/:id/comments', auth.requiresLogin, comments.create);
-  app.delete('/news/:id/comments/:commentId', commentAuth, comments.destroy);
+  app.delete('/news/:id/comments',auth.requiresLogin, comments.destroy);
 
 
    /**   * Error handling   */

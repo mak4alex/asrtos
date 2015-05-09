@@ -2,6 +2,11 @@
 
 {% block title %}Новости new{% endblock %}
 
+{% block head %}
+<script type="text/javascript" src="/vendor/nicEdit.js"></script>
+<script src="/js/news-form.js" ></script>
+{% endblock %}
+
 {% block content %}
   {% if article.isNew %}
     {% set action = '/news' %}

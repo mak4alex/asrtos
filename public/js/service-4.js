@@ -21,6 +21,7 @@ function handler() {
         dataType: 'json',
         data: req,
         success: function (data) {
+          $("#results").show();
           $("#result-latitude").text(data.latitude);
           $("#result-longitude").text(data.longitude);
         },
@@ -41,6 +42,7 @@ function handler() {
     $( "#accordion" ).accordion({
       heightStyle: "content",
       collapsible: true,
+      active: false,
       icons: icons
     });
   });

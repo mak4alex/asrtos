@@ -1,5 +1,9 @@
 {% extends '../layouts/main.html' %}
 
+{% block head %}
+<script src="/js/comment.js" ></script>
+{% endblock %}
+
 {% block content %}
 <div class="container">
   <div class="blog-artical-grid break-word">
@@ -31,20 +35,24 @@
     </div>
   </div>
   <!----//End-blog-artical-grid--->
-  <form action="{{ '/news/' + article.id }}" method="post" onsubmit="return confirm('Are you sure?')">
-    <input type="hidden" name="_csrf" value="{{ csrf_token }}">
-    <a href="{{ '/news/' + article._id + '/edit' }}" title="edit" class="btn btn-default">Edit</a>
-    &nbsp;
-    <input type="hidden" name="_method" value="DELETE">
-    <button class="btn btn-danger" type="submit">Delete</button>
-  </form>
+  {% if (req.user.id == article.user.id) %}
+    <form action="{{ '/news/' + article.id }}" method="post" >
+      <input type="hidden" name="_csrf" value="{{ csrf_token }}">
+      <a href="{{ '/news/' + article._id + '/edit' }}" title="edit" class="btn btn-default">{{__('edit')}}</a>
+      &nbsp;
+      <input type="hidden" name="_method" value="DELETE">
+      <button class="btn btn-danger" type="submit">{{__('delete')}}</button>
+    </form>
+  {% endif %}
   <div class="container-fluid break-word">
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-md-6">
-        <h3>Comments</h3>
-        {% for comment in article.comments %}
-          {% include '../comments/comment.html' %}
-        {% endfor %}
+        <h3>{{__('comments')}}</h3>
+        <div id="comments">
+          {% for comment in article.comments %}
+            {% include '../comments/comment.html' %}
+          {% endfor %}
+        </div>
         <h4>Ваше мнение</h4>
         {% include '../comments/form.html' %}
       </div>

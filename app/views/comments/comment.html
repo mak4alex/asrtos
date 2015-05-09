@@ -1,25 +1,21 @@
 {% if (comment && comment.user) %}
 <div class="comment">
   {% if (comment.user.name) %}
-  {% set name = comment.user.name %}
+    {% set name = comment.user.name %}
   {% else %}
-  {% set name = comment.user.username %}
+    {% set name = comment.user.username %}
   {% endif %}
-
-  <p>
-    <a href="{{ '/users/' + comment.user._id }}">{{ name }}</a>
+  <p> <a href="{{ '/users/' + comment.user._id }}">{{ name }}</a>
     :&nbsp;
     {{ comment.body }}
   </p>
-
-  <!-- <p class="muted"> -->
-  <form role="form" method="post" action="{{ '/news/' + article._id + '/comments/' + comment._id }}"
-        onsubmit="return confirm('Are you sure?')" class="form-inline">
+  <form name="delete-comment" role="form" action="{{ '/news/' + article._id + '/comments'}}" class="form-inline" data-remote="true">
     <input type="hidden" name="_csrf" value="{{ csrf_token }}">
-    <span class="muted">{{ comment.createdAt.toISOString()|date('M d, Y  h:m a') }}</span>
-    <input type="hidden" name="_method" value="DELETE">
-    <button class="btn btn-danger btn-link error" type="submit">delete</button>
+    <input type="hidden" name="id" value="{{ '' + comment._id }}">
+    <small>{{ comment.createdAt.toISOString()|date('M d, Y  h:m a') }}</small>
+    {% if (req.user.id == comment.user.id) %}
+      <button class="btn btn-danger btn-link error" type="submit">{{__('delete')}}</button>
+    {% endif %}
   </form>
-  <!-- </p> -->
 </div>
 {% endif %}

@@ -1,8 +1,10 @@
 $(document).ready(handler);
-$(document).bind("DOMSubtreeModified", handler);
+
 
 function handler() {
-  $("form[data-remote=true]").submit(function (e) {
+  $("form[data-remote=true]").submit(createCarriage);
+
+  function createCarriage (e) {
     e.preventDefault(); // prevent normal submit
     $.ajax({
       type: "POST",
@@ -10,15 +12,19 @@ function handler() {
       dataType: 'json',
       data: $(this).serialize(),
       success: function (data) {
-        $('#carriage-container').load(document.URL +  ' #carriage-container');
+        $('#carriage-container').load(document.URL +  ' #carriage-container', function() {
+          $("form[data-remote=true]").submit(createCarriage);
+          $( "#accordion" ).accordion(accordionConfig);
+        });
       },
       error: function () {
         alert("Server error");
       }
     });
-  });
+  }
 
-  $("button[name=delete]").click(function () {
+  $("button[name=delete]").click(deleteCarriage);
+  function deleteCarriage () {
     var form = $("form[name=" + this.value + "]");
     var values = form.serialize();
     $.ajax({
@@ -27,13 +33,16 @@ function handler() {
       dataType: 'json',
       'data': values,
       success: function (data) {
-        $('#carriage-container').load(document.URL +  ' #carriage-container');
+        $('#carriage-container').load(document.URL +  ' #carriage-container', function() {
+          $("button[name=delete]").click(deleteCarriage);
+          $( "#accordion" ).accordion(accordionConfig);
+        });
       },
       error: function () {
         alert("Server error.");
       }
     });
-  });
+  }
 
   var tooltips = $( "[title]" ).tooltip({
     position: {
@@ -41,6 +50,18 @@ function handler() {
       at: "right+5 top-5"
     }
   });
+
+  var accordionConfig = {
+    heightStyle: "content",
+    collapsible: true,
+    active: false,
+    icons: {
+      header: "ui-icon-circle-arrow-e",
+      activeHeader: "ui-icon-circle-arrow-s"
+    }
+  };
+
+  $( "#accordion" ).accordion(accordionConfig);
 
 
   $("button[name=reset]").click(function (e) {

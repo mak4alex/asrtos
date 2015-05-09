@@ -21,19 +21,17 @@ exports.create = function (req, res) {
 
   article.addComment(user, req.body, function (err) {
     if (err) return res.render('500');
-    res.redirect('/news/' + article.id);
+    res.json({});
   });
 };
 
 /** * Delete comment */
 exports.destroy = function (req, res) {
+  var id = req.body.id;
+  console.log("destroy commnet:" + id);
   var article = req.article;
-  article.removeComment(req.param('commentId'), function (err) {
-    if (err) {
-      req.flash('error', 'Oops! The comment was not found');
-    } else {
-      req.flash('info', 'Removed comment');
-    }
-    res.redirect('/news/' + article.id);
+  article.removeComment(id, function (err) {
+    if (err) return res.render('500');
+    res.json({});
   });
 };

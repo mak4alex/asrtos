@@ -9,14 +9,9 @@ fieldset .help {
     display: inline-block;
 }
 .ui-tooltip {
-    width: 20%;
+    width: 30%;
+    word-break: break-all;
 }
-
-.forms{
-    width: 50%;
-    margin: auto;
-}
-
 
 table {
     width: 100%;

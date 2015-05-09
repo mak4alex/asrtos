@@ -7,3 +7,12 @@
 #results {
     display: none;
 }
+
+table {
+    width: 100%;
+}
+
+td {
+    border: 3px solid #222222;
+    padding: 20px;
+}

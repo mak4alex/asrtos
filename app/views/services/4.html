@@ -23,7 +23,9 @@
         </div>
       </div>
     </div>
-    <h2 class="text-center">Точки поставки</h2>
+    <div class="services-wel wel-head text-center">
+      <h4 class="text-center">Точки поставки</h4>
+    </div>
     <div id="reload">
       <div id="points-slider" >
         {% for point in points%}
@@ -48,10 +50,16 @@
         {% endfor %}
       </div>
     </div>
-    <h4>Координаты оптового склада для выбраных точек</h4>
-    <button  id="get-result" type="button" class="btn btn-primary">Подсчитать</button><br/>
-    Результат:<br/>
-    Координата Х: <span id="result-latitude"></span>.<br/>
-    Координата У: <span id="result-longitude"></span>.
+
+    <div class="services-wel wel-head text-center">
+      <h5>Координаты оптового склада для выбраных точек</h5><br/>
+      <button  id="get-result" type="button" class="btn btn-primary btn-lg">Подсчитать</button>
+    </div>
+    <div id="results">
+      <table>
+        <tr> <td class="lead one-third">Координата Х: <span id="result-latitude"></span>.</td></tr>
+        <tr> <td class="lead one-third">Координата У: <span id="result-longitude"></span>.</td></tr>
+      </table>
+    </div>
   </div>
 {% endblock %}

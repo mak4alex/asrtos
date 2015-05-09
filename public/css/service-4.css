@@ -7,3 +7,17 @@
     padding: 10px;
     height: 100%;
 }
+
+#results {
+    display: none;
+}
+
+table {
+    margin: auto;
+    width: 50%;
+}
+
+td {
+    border: 3px solid #222222;
+    padding: 5%;
+}

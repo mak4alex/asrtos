@@ -1,7 +1,7 @@
-<form method="post" action="{{ '/news/' + article._id + '/comments' }}" role="form">
-  <input type="hidden" name="_csrf" value="{{ csrf_token }}">
+<form method="post" name="create-comment" action="{{ '/news/' + article._id + '/comments' }}" role="form" data-remote="true">
+  <input type="hidden" name="_csrf" value="{{ csrf_token }}" />
   <div class="form-group">
-    <textarea rows="6" name="body" placeholder="Add your comment" class="form-control"></textarea>
+    <textarea rows="6" name="body" placeholder="Add your comment" class="form-control" required="true"></textarea>
   </div>
-  <button class="btn btn-primary" type="submit">Add comment</button>
+  <button class="btn btn-primary" type="submit">{{__('add_comment')}}</button>
 </form>

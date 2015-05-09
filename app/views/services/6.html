@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
+{% extends '../layouts/main.html' %}
 
-</body>
-</html>
+{% block title %}Выбор собственности склада{% endblock %}
+
+{% block head %}
+{% parent %}
+<link rel="stylesheet" href="/css/service-6.css">
+<script src="/js/service-6.js"></script>
+{% endblock %}
+
+{% block content %}
+{% include "../includes/navigation.html" with { service: "Выбор собственности склада" } %}
+<div class="container">
+  <div class="services-wel wel-head text-center">
+    <h3>Выбор формы собственности склада</h3>
+    <p>Выбор формы собственности склада, исходя из Ваших требований.</p>
+  </div>
+
+</div>
+{% endblock %}

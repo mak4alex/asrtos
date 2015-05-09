@@ -1,7 +1,13 @@
 {
+	"address": "Адрес",
+	"add_comment": "Добавить комментарий",
+	"are_you_sure": "Вы уверены",
+	"comments": "Комментарии",
 	"copyright": "Авторское право",
 	"contacts": "Контакты",
-	"email": "email",
+	"delete": "Удалить",
+	"edit": "Редактировать",
+	"email": "Email",
 	"home": "Главная",
 	"service": "Сервис",
 	"about": "Описание",
@@ -17,9 +23,8 @@
 	"sign_up": "Зарегистрироваться",
 	"password": "Пароль",
 	"language": "Язык",
-	"hom": "hom",
-	"address": "Адрес",
 	"latest_posts": "Последние посты",
 	"or": "или",
-	"full_name": "Полное имя"
+	"full_name": "Полное имя",
+	"": ""
 }

@@ -147,7 +147,7 @@ exports.handleService3 = function(req, res){
   var results = {};
   results["optimal-order"] = Math.sqrt(2 * data["average-demand"] * data["const-costs"] / ( data["cost-unit"] * data["upkeep-cost"] / 100 ) );
   results["min-costs"] = Math.sqrt( data["average-demand"] * data["const-costs"] * data["cost-unit"] * data["upkeep-cost"] ) ;
-  results["regime-supply"] = results["optimal-order"] / data["average-demand"];
+  results["regime-supply"] = results["optimal-order"] / data["average-demand"] * 365;
 
   console.log(data);
   console.log(results);
