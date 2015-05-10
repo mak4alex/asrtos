@@ -59,3 +59,22 @@
 .ct-chart.ct-blured .ct-line {
     stroke-opacity: 0.2;
 }
+
+.ownStore {
+    color: #3299BB;
+    font-weight: bold;
+}
+
+.rentStore {
+    color: #FF9900;
+    font-weight: bold;
+}
+
+#apathy {
+    text-decoration: underline;
+}
+
+#results h5 {
+    text-transform: none;
+    border: none;
+}
