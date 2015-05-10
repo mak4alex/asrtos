@@ -1,0 +1,61 @@
+.tooltip {
+    position: absolute;
+    z-index: 1;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    border-radius: 3px;
+    text-align: center;
+    pointer-events: none;
+    color: white;
+    transition: opacity .1s ease-out;
+}
+
+.tooltip.tooltip-hidden {
+    opacity: 0;
+}
+
+.ct-chart {
+    position: relative;
+}
+
+.ct-chart .ct-label.ct-horizontal,
+.ct-chart .ct-label.ct-vertical {
+    color: rgba(0, 0, 0, 0.3);
+}
+.ct-chart .ct-grid.ct-horizontal,
+.ct-chart .ct-grid.ct-vertical {
+    shape-rendering: crispEdges;
+    stroke-width: 1px;
+    stroke-dasharray: 1px 4px;
+    stroke: rgba(0, 0, 0, 0.2);
+}
+
+.ct-chart .ct-point {
+    stroke-width: 20px;
+}
+
+.ct-chart .ct-line {
+    stroke-width: 3px;
+}
+
+.ct-chart .ct-series.ct-series-a .ct-point {
+    stroke: #3299BB;
+}
+
+.ct-chart .ct-series.ct-series-a .ct-line {
+    stroke: #3299BB;
+}
+
+.ct-chart .ct-series.ct-series-b .ct-point {
+    stroke: #FF9900;
+}
+
+.ct-chart .ct-series.ct-series-b .ct-line {
+    stroke: #FF9900;
+}
+
+.ct-chart.ct-blured .ct-point,
+.ct-chart.ct-blured .ct-line {
+    stroke-opacity: 0.2;
+}

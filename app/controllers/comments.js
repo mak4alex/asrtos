@@ -16,6 +16,11 @@ exports.load = function (req, res, next, id) {
 exports.create = function (req, res) {
   var article = req.article;
   var user = req.user;
+  if( user.name.length) {
+    req.body.author = user.name
+  } else {
+    req.body.author = user.username;
+  }
   console.log(req.body);
   if (!req.body.body) return res.redirect('/news/' + article.id);
 

@@ -35,6 +35,7 @@ var ArticleSchema = new Schema({
   comments: [{
     body: {type: String, default: ''},
     user: {type: Schema.ObjectId, ref: 'User'},
+    author: {type: String, default: ''},
     createdAt: {type: Date, default: Date.now}
   }],
   createdAt: {
@@ -74,7 +75,8 @@ ArticleSchema.methods = {
   addComment: function (user, comment, cb) {
     this.comments.push({
       body: comment.body,
-      user: user._id
+      user: user._id,
+      author: comment.author
     });
     this.save(cb);
   },
@@ -136,9 +138,7 @@ ArticleSchema.statics = {
       return b.createdAt - a.createdAt;
     });
 
-    console.log(comments);
     var length = comments.length > 4 ? 5 : comments.length;
-
     return comments.slice(0, length);
   }
 };

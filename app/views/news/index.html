@@ -57,23 +57,17 @@
 							</div>
 							<div class="blog-comment-grids">
                 {% for comment in lastComments %}
-                {% if (comment.user.name) %}
-                {% set name = comment.user.name %}
-                {% else %}
-                {% set name = comment.user.username %}
-                {% endif %}
-
                   <div class="blog-comment-grid">
                     <div class="blog-comment-grid-left">
                       <img src="/img/user.png" alt="user">
                     </div>
                     <div class="blog-comment-grid-right">
-                      <a href="{{ '/users/' + comment.user._id }}">{{ name }}</a>
+                      <a href="{{ '/users/' + comment.user }}">{{ comment.author }}</a>
                       <p>{{comment.body}}</p>
                     </div>
                     <div class="clearfix"> </div>
                   </div>
-                {%endfor%}
+                {% endfor %}
               </div>
 						</div>
 						<!----start-Comments---->

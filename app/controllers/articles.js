@@ -28,17 +28,19 @@ exports.index = function (req, res) {
   Article.list(options, function (err, articles) {
     if (err) return res.render('500');
     var lastComments;
-    Article.find( {}, function (err, allArticles) {
+    Article.find({})
+        .populate('user', 'name username')
+        .exec( function (err, allArticles) {
       if (err) return res.render('500');
       lastComments = Article.listLastComments(allArticles);
-    });
-
-    Article.count().exec(function (err, count) {
-      res.render('news/index', {
-        articles: articles,
-        lastComments: lastComments,
-        page: page + 1,
-        pages: Math.ceil(count / perPage)
+      console.log(lastComments[0]);
+      Article.count().exec(function (err, count) {
+        res.render('news/index', {
+          articles: articles,
+          lastComments: lastComments,
+          page: page + 1,
+          pages: Math.ceil(count / perPage)
+        });
       });
     });
   });

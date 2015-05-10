@@ -2,19 +2,19 @@
   <input type="hidden" name="_csrf" value="{{ csrf_token }}">
   <div class=" form-group">
     <label for="title" >Название</label><br/>
-    <input id="title" name="title" type="text"  class="form-control" required>
+    <input id="title" name="title" type="text" placeholder="Название точки" class="form-control" required>
   </div>
   <div class="form-group">
     <label for="address">Адрес</label>
-    <input id="address" name="address" type="text" class="form-control" required>
+    <input id="address" name="address" type="text" placeholder="Фактический адрес" class="form-control" required>
   </div>
   <div class="form-group">
     <label for="supply">Объем поставок</label>
-    <input id="supply" name="supply" type="number"  min="0" step="0.1"  class="form-control" required>
+    <input id="supply" name="supply" type="number" placeholder="Неодходимое число единиц"  min="0" step="0.1"  class="form-control" required>
   </div>
   <div class="form-group">
     <label for="rate">Тариф</label>
-    <input id="rate" name="rate" type="number"  min="0" step="0.1"  class="form-control" required>
+    <input id="rate" name="rate" type="number" placeholder="Плата за поставку ден единиц"  min="0" step="0.1"  class="form-control" required>
   </div>
   <div class="form-group">
     <label for="latitude">Координата Х</label><br/>

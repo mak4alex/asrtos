@@ -3,7 +3,7 @@ var Article = mongoose.model('Article');
 
 exports.layoutValues = function (req, res, next) {
   var options = {
-    perPage: 4,
+    perPage: 2,
     page: 0
   };
 

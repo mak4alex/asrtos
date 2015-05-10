@@ -14,11 +14,10 @@ $(document).ready(function() {
         $('#comments').load(document.URL +  ' #comments', function() {
           $(form)[0].reset();
           $("form[name='delete-comment']").submit(deleteComment);
-
         });
       },
       error: function () {
-        alert("Server error");
+        window.location.replace("/login");
       }
     });
   }

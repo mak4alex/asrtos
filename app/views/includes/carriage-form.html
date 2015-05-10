@@ -4,38 +4,39 @@
     <input type="hidden" name="id" value="{{carriage.id}}">
     <div class="row">
       <hr/>
-      <div class="col-xs-10 col-md-11">
+      <div class="col-xs-0 col-md-1"></div>
+      <div class="col-xs-10 col-md-10">
         <div class=" form-group">
           <label for="{{carriage.id + 'yearDemand' }}" >Годовой спрос</label><br/>
-          <input id="{{carriage.id + 'yearDemand' }}" name="yearDemand" type="number"  min="0" step="0.1" class="form-control" value="{{carriage.yearDemand}}" required>
+          <input id="{{carriage.id + 'yearDemand' }}" name="yearDemand" type="number"  min="0" step="0.1" class="form-control" value="{{carriage.yearDemand}}" placeholder="Единиц товара" required>
         </div>
         <div class="form-group">
           <label for="{{carriage.id + 'unitCost' }}">Цена единицы</label><br/>
-          <input id="{{carriage.id + 'unitCost' }}" name="unitCost" type="number"  min="0" step="0.1"  class="form-control" value="{{carriage.unitCost}}" required>
+          <input id="{{carriage.id + 'unitCost' }}" name="unitCost" type="number"  min="0" step="0.1"  class="form-control" value="{{carriage.unitCost}}" placeholder="Денежных единиц" required>
         </div>
         <div class="form-group">
           <label for="{{carriage.id + 'saveCost' }}">Доля затрат на хр-ние</label><br/>
-          <input id="{{carriage.id + 'saveCost' }}" name="saveCost" type="number"  min="0" step="0.1"  class="form-control" value="{{carriage.saveCost}}" required>
+          <input id="{{carriage.id + 'saveCost' }}" name="saveCost" type="number"  min="0" step="0.1"  class="form-control" value="{{carriage.saveCost}}" placeholder="В % от стоимости заказа" required>
         </div>
         <div class="form-group">
           <label for="{{carriage.id + 'constCost' }}">Постоянные затраты</label><br/>
-          <input id="{{carriage.id + 'constCost' }}" name="constCost" type="number"  min="0" step="0.1"  class="form-control" value="{{carriage.constCost}}" required>
+          <input id="{{carriage.id + 'constCost' }}" name="constCost" type="number"  min="0" step="0.1"  class="form-control" value="{{carriage.constCost}}" placeholder="Денежных единиц" required>
         </div>
         <div class=" form-group">
           <label for="{{carriage.id + 'transRate' }}">Транспортный тариф</label><br/>
-          <input id="{{carriage.id + 'transRate' }}" name="transRate" type="number"  min="0" step="0.1"  class="form-control" value="{{carriage.transRate}}" required>
+          <input id="{{carriage.id + 'transRate' }}" name="transRate" type="number"  min="0" step="0.1"  class="form-control" value="{{carriage.transRate}}" placeholder="Денежных единиц" required>
         </div>
         <div class=" form-group">
           <label for="{{carriage.id + 'partySize' }}">Размер партии</label><br/>
-          <input id="{{carriage.id + 'partySize' }}" name="partySize" type="number"  min="0" step="0.1"  class="form-control" value="{{carriage.partySize}}" required>
+          <input id="{{carriage.id + 'partySize' }}" name="partySize" type="number"  min="0" step="0.1"  class="form-control" value="{{carriage.partySize}}" placeholder="Единиц товара" required>
         </div>
         <div class=" form-group">
           <label for="{{carriage.id + 'wayTime' }}">Время в пути</label><br/>
-          <input id="{{carriage.id + 'wayTime' }}" name="wayTime" type="number"  min="0" step="0.1"  class="form-control" value="{{carriage.wayTime}}" required>
+          <input id="{{carriage.id + 'wayTime' }}" name="wayTime" type="number"  min="0" step="0.1"  class="form-control" value="{{carriage.wayTime}}" placeholder="В днях" required>
         </div>
         <div class=" form-group">
           <label for="{{carriage.id + 'stockTime' }}">Время страхового запаса</label><br/>
-          <input id="{{carriage.id + 'stockTime' }}" name="stockTime" type="number"  min="0" step="0.1"  class="form-control" value="{{carriage.stockTime}}" required>
+          <input id="{{carriage.id + 'stockTime' }}" name="stockTime" type="number"  min="0" step="0.1"  class="form-control" value="{{carriage.stockTime}}" placeholder="В днях" required>
         </div>
         <div class=" form-group">
           <label for="{{carriage.id + 'costs' }}">Итоговые затраты</label><br/>

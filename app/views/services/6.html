@@ -4,8 +4,10 @@
 
 {% block head %}
 {% parent %}
-<link rel="stylesheet" href="/css/service-6.css">
-<script src="/js/service-6.js"></script>
+  <link rel="stylesheet" href="/vendor/bower_components/chartist/dist/chartist.min.css">
+  <script src="/vendor/bower_components/chartist/dist/chartist.min.js"></script>
+  <link rel="stylesheet" href="/css/service-6.css">
+  <script src="/js/service-6.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -14,6 +16,38 @@
   <div class="services-wel wel-head text-center">
     <h3>Выбор формы собственности склада</h3>
     <p>Выбор формы собственности склада, исходя из Ваших требований.</p>
+  </div>
+  <div class="row">
+    <div class="col-sx-12 col-md-6">
+      <form name="store-form" >
+        <div class=" form-group">
+          <label for="year-own-cost" >Затраты эксплуатации собс склада</label><br/>
+          <input id="year-own-cost" name="year-own-cost" type="number" min="0.01" step="0.01" placeholder="Денежных единиц/год" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="own-cost">Удельные затраты собс склада</label>
+          <input id="own-cost" name="own-cost" type="number" min="0.01" step="0.01" placeholder="Денежных единиц/тонна" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="rent-cost">Удельные затраты аренд склада</label>
+          <input id="rent-cost" name="rent-cost" type="number" min="0.01" step="0.01" placeholder="Денежных единиц/тонна" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="turnover">Товарооборот</label>
+          <input id="turnover" name="turnover" type="number" min="0.01" step="0.01" placeholder="Тонн/год" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Высчитать <span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+          <button type="reset" class="btn btn-warning">Сбросить <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="results" class="services-wel wel-head text-center">
+    <h4>График затрат</h4>
+    <p>Точка безразличия достигается при <span class="lead" id="apathy"></span>тонн/год.</p>
+    <div id="my-chart" class="ct-chart ct-perfect-fourth"></div>
   </div>
 
 </div>
