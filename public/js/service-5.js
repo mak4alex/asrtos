@@ -2,7 +2,35 @@ $(document).ready(handler);
 
 
 function handler() {
-  $("form[data-remote=true]").submit(createCarriage);
+
+  var accordionConfig = {
+    heightStyle: "content",
+    collapsible: true,
+    active: false,
+    icons: {
+      header: "ui-icon-circle-arrow-e",
+      activeHeader: "ui-icon-circle-arrow-s"
+    }
+  };
+
+
+
+
+  function resetHandlers() {
+    $("form[data-remote=true]").off();
+    $("form[data-remote=true]").submit(createCarriage);
+
+    $("button[name=delete]").off();
+    $("button[name=delete]").click(deleteCarriage);
+
+    $("button[name=reset]").off();
+    $("button[name=reset]").click( reset );
+
+    $("#accordion").accordion(accordionConfig);
+  }
+
+  resetHandlers();
+
 
   function createCarriage (e) {
     e.preventDefault(); // prevent normal submit
@@ -13,8 +41,7 @@ function handler() {
       data: $(this).serialize(),
       success: function (data) {
         $('#carriage-container').load(document.URL +  ' #carriage-container', function() {
-          $("form[data-remote=true]").submit(createCarriage);
-          $( "#accordion" ).accordion(accordionConfig);
+          resetHandlers();
         });
       },
       error: function () {
@@ -23,7 +50,7 @@ function handler() {
     });
   }
 
-  $("button[name=delete]").click(deleteCarriage);
+
   function deleteCarriage () {
     var form = $("form[name=" + this.value + "]");
     var values = form.serialize();
@@ -34,8 +61,7 @@ function handler() {
       'data': values,
       success: function (data) {
         $('#carriage-container').load(document.URL +  ' #carriage-container', function() {
-          $("button[name=delete]").click(deleteCarriage);
-          $( "#accordion" ).accordion(accordionConfig);
+          resetHandlers();
         });
       },
       error: function () {
@@ -51,23 +77,12 @@ function handler() {
     }
   });
 
-  var accordionConfig = {
-    heightStyle: "content",
-    collapsible: true,
-    active: false,
-    icons: {
-      header: "ui-icon-circle-arrow-e",
-      activeHeader: "ui-icon-circle-arrow-s"
-    }
-  };
-
-  $( "#accordion" ).accordion(accordionConfig);
 
 
-  $("button[name=reset]").click(function (e) {
+
+  function reset (e) {
     if(this.value != "")
       e.preventDefault();
     $("form[name=" + this.value + "]").find("input[type=number]").val("");
-  });
-
+  }
 }
