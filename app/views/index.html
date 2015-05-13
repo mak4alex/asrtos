@@ -87,7 +87,7 @@
                       article.user.name || article.user.username }}</a></span>
 
                     <p> {{ article.short }} </p>
-                    <a class="news-btn" href="{{ '/news/' + article._id }}">Читать далее</a>
+                    <a class="news-btn" href="{{ '/news/' + article._id }}">{{__('readMore')}}</a>
                   </div>
                   {% endfor %}
                   {% else %}

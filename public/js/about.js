@@ -11,7 +11,6 @@ $(document).ready(function(){
     });
   });
 
-
   $('#slider').slick({
     dots: true,
     customPaging: function(slider, i) {

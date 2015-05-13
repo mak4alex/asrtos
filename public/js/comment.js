@@ -1,6 +1,17 @@
 $(document).ready(function() {
 
-  $("form[name='create-comment']").submit(createComment);
+  function resetHandlers() {
+    var createCommentForm = $("form[name='create-comment']");
+    var deleteCommentForm = $("form[name='delete-comment']");
+    createCommentForm.off();
+    createCommentForm.submit(createComment);
+    createCommentForm[0].reset();
+    deleteCommentForm.off();
+    deleteCommentForm.submit(deleteComment);
+    console.log("Reset handlers");
+  }
+
+  resetHandlers();
 
   function createComment(e) {
     e.preventDefault();
@@ -11,18 +22,13 @@ $(document).ready(function() {
       dataType: 'json',
       data: $(this).serialize(),
       success: function () {
-        $('#comments').load(document.URL +  ' #comments', function() {
-          $(form)[0].reset();
-          $("form[name='delete-comment']").submit(deleteComment);
-        });
+        $('#comments').load(document.URL +  ' #comments', resetHandlers);
       },
       error: function () {
         window.location.replace("/login");
       }
     });
   }
-
-  $("form[name='delete-comment']").submit(deleteComment);
 
   function deleteComment(e) {
     e.preventDefault();
@@ -32,10 +38,7 @@ $(document).ready(function() {
       dataType: 'json',
       data: $(this).serialize(),
       success: function () {
-        $('#comments').load(document.URL +  ' #comments', function() {
-          $("form[name='delete-comment']").submit(deleteComment);
-
-        });
+        $('#comments').load(document.URL +  ' #comments', resetHandlers);
       },
       error: function () {
         alert("Server error");

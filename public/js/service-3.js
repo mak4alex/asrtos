@@ -19,7 +19,6 @@ $(document).ready(function() {
     });
   });
 
-
   $(function() {
     var tooltips = $( "[title]" ).tooltip({
       position: {

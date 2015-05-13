@@ -1,6 +1,4 @@
-$(document).ready(handler);
-
-function handler() {
+$(document).ready( function() {
   $("#get-result").click(function(){
     var points = $("div[name=point]");
     var req = {
@@ -83,8 +81,18 @@ function handler() {
       }
     ]
   };
-  var slider = $('#points-slider');
-  slider.slick(slickConfig);
+
+  function resetHandlers() {
+    var deletePointForm = $("form[name=delete-form]");
+    var slider = $('#points-slider');
+
+    slider.slick(slickConfig);
+
+    deletePointForm.off();
+    deletePointForm.submit(deletePoint);
+  }
+
+  resetHandlers();
 
   $("form[name=create-form]").submit(function (e) {
     e.preventDefault();
@@ -94,18 +102,13 @@ function handler() {
       dataType: 'json',
       data: $(this).serialize(),
       success: function () {
-        $('#reload').load(document.URL +  ' #reload', function() {
-          $('#points-slider').slick(slickConfig);
-        });
+        $('#reload').load(document.URL +  ' #reload', resetHandlers);
       },
       error: function () {
         alert("Server error");
       }
     });
   });
-
-
-  $("form[name=delete-form]").submit(deletePoint);
 
   function deletePoint(e) {
     e.preventDefault();
@@ -125,4 +128,4 @@ function handler() {
       }
     });
   }
-}
+});

@@ -9,6 +9,8 @@ exports.load = function (req, res, next, id) {
   var options = {
     criteria: { _id : id }
   };
+
+  console.log("User load");
   User.load(options, function (err, user) {
     if (err) return next(err);
     if (!user) return next(new Error('Failed to load User ' + id));

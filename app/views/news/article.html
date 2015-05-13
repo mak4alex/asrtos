@@ -1,6 +1,5 @@
 <div class="blog-artical-grid break-word">
   <h3><a href="{{ '/news/' + article._id }}">{{ article.title }}</a></h3>
-
   <div class="blog-artical-grid-pic-info">
     {% if (article.image.length) %}
     <div class="blog-artical-grid-pic">
@@ -28,7 +27,7 @@
   </div>
   <!-----//End-artical-destilas---->
   <div class="artical-more-btn">
-    <a href="{{ '/news/' + article._id }}"><span>ReadMore...</span></a>
+    <a href="{{ '/news/' + article._id }}"><span>{{__('readMore')}}...</span></a>
   </div>
 </div>
 <!----//End-blog-artical-grid--->
