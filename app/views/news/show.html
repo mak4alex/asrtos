@@ -53,8 +53,10 @@
             {% include '../comments/comment.html' %}
           {% endfor %}
         </div>
-        <h4>Ваше мнение</h4>
-        {% include '../comments/form.html' %}
+        {% if (req.isAuthenticated()) %}
+          <h4>Ваше мнение, {{ req.user.name || req.user.username }}</h4>
+          {% include '../comments/form.html' %}
+        {% endif %}
       </div>
     </div>
   </div>

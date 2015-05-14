@@ -7,39 +7,36 @@
 <!---- container ---->
     <!---- header ----->
     <div class="header">
-        <div class="container">
-    <!---- banner --->
-    <div class="banner text-center">
-        <h1><span>АСР</span>ТОС - будущее логистики</h1>
-        <p>Автоматизированная система распределения товаров оптового склада с расчётом эффективности перевозок</p>
-      <a class="seemore" href="/about">Узнать больше!</a>
-    </div>
-    <!---- banner --->
-    <!---- banner-grids ---->
-    <div class="banner-grids">
-        <div class="col-md-4 banner-grid">
+      <div class="container">
+        <!---- banner --->
+        <div class="banner text-center">
+            <h1><span>АСР</span>ТОС - будущее логистики</h1>
+            <p>Автоматизированная система распределения товаров оптового склада с расчётом эффективности перевозок</p>
+          <a class="seemore" href="/about">Узнать больше!</a>
+        </div>
+        <!---- banner --->
+        <!---- banner-grids ---->
+        <div class="banner-grids">
+          <div class="col-md-4 banner-grid">
             <span><img src="/img/icon.png" title="tootls" /></span>
-
-          <h3><a>Технологии</a></h3>
+            <h3><a>Технологии</a></h3>
             <p>ACP-ТОС использует только самые современные и передовые методы и инструменты</p>
-        </div>
-        <div class="col-md-4 banner-grid">
+          </div>
+          <div class="col-md-4 banner-grid">
             <span><img src="/img/icon1.png" title="tootls" /></span>
-
-          <h3><a>Лицензии</a></h3>
+            <h3><a>Лицензии</a></h3>
             <p>ACP-ТОС проверена временем и имеет лицензии от авторитетных международных кампаний</p>
-        </div>
-        <div class="col-md-4 banner-grid">
+          </div>
+          <div class="col-md-4 banner-grid">
             <span><img src="/img/icon3.png" title="tootls" /></span>
-
-          <h3><a>Поддержка</a></h3>
+            <h3><a>Поддержка</a></h3>
             <p>Вы можете связаться с нами в любое время и служба поддержки ACP-ТОС поможет Вам</p>
+          </div>
+          <div class="clearfix"> </div>
         </div>
-        <div class="clearfix"> </div>
+        <!---- banner-grids ---->
+      </div>
     </div>
-    <!---- banner-grids ---->
-        </div>
-        </div>
     <!---- header ----->
     <!---- welcome-Note ---->
     <div class="welcome-note">
@@ -55,16 +52,16 @@
     <div class="top-grids">
         <div class="container">
             <div class="col-md-4 top-grid">
-                <h4>Заголовок</h4>
-                <p>If you are going to use a passage of Lorem Ipsum, there isn't anything embarrassing hidden in the middle of text.</p>
+                <h4>Основная задача склада</h4>
+                <p>Преобразование материального потока, накапливание, переработка и распределение грузов между потребителями.</p>
             </div>
             <div class="col-md-4 top-grid">
-                <h4>Заголовок</h4>
-                <p>If you are going to use a passage of Lorem Ipsum, there isn't anything embarrassing hidden in the middle of text.</p>
+                <h4>Формирование заказа</h4>
+                <p>Различают методы последовательного, зонового и группового формирования (комплектации) заказа (партий для отгрузки) на складе.</p>
             </div>
             <div class="col-md-4 top-grid">
-                <h4>Заголовок</h4>
-                <p>If you are going to use a passage of Lorem Ipsum, there isn't anything embarrassing hidden in the middle of text.</p>
+                <h4>Грузовая единица</h4>
+                <p>Некоторое количество грузов, которые погружают, транспортируют, выгружают и хранят как единую массу.</p>
             </div>
             <div class="clearfix"> </div>
         </div>
@@ -75,23 +72,22 @@
         <div class="container">
             <div class="col-md-8 mid-grids-left">
                 <h2>Последние новости от <span><label>АСР</label>ТОС</span></h2>
-
                 <!---- latest-news-grids---->
                 <div class="latest-news-grids">
                   {% if (lastArticles.length) %}
-                  {% for article in lastArticles %}
-                  <div class="latest-news-grid">
-                    <img src="{{ article.image }}" title="{{article.title}}"/>
-                    <h4>{{article.title}}</h4>
-                    <span>{{ article.createdAt.toLocaleString() }}, от <a href="{{ '/users/' + article.user._id}}">{{
-                      article.user.name || article.user.username }}</a></span>
+                    {% for article in lastArticles %}
+                    <div class="latest-news-grid">
+                      <img src="{{ article.image }}" title="{{article.title}}"/>
+                      <h4>{{article.title}}</h4>
+                      <span>{{ article.createdAt.toLocaleString() }}, от <a href="{{ '/users/' + article.user._id}}">{{
+                        article.user.name || article.user.username }}</a></span>
 
-                    <p> {{ article.short }} </p>
-                    <a class="news-btn" href="{{ '/news/' + article._id }}">{{__('readMore')}}</a>
-                  </div>
-                  {% endfor %}
+                      <p> {{ article.short }} </p>
+                      <a class="news-btn" href="{{ '/news/' + article._id }}">{{__('readMore')}}</a>
+                    </div>
+                    {% endfor %}
                   {% else %}
-                  <p>There are no news</p>
+                    <p>Пока еще нет новостей...</p>
                   {% endif %}
                     <div class="clearfix"> </div>
                 </div>
@@ -127,5 +123,4 @@
         </div>
     </div>
     <!---- mid-grids ---->
-
 {% endblock %}

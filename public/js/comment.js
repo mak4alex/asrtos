@@ -5,7 +5,7 @@ $(document).ready(function() {
     var deleteCommentForm = $("form[name='delete-comment']");
     createCommentForm.off();
     createCommentForm.submit(createComment);
-    createCommentForm[0].reset();
+
     deleteCommentForm.off();
     deleteCommentForm.submit(deleteComment);
     console.log("Reset handlers");
@@ -24,8 +24,9 @@ $(document).ready(function() {
       success: function () {
         $('#comments').load(document.URL +  ' #comments', resetHandlers);
       },
-      error: function () {
-        window.location.replace("/login");
+      error: function (err) {
+        console.log("Error add comment");
+        console.log(err);
       }
     });
   }
