@@ -1,19 +1,20 @@
 /*!  * Module dependencies. */
-var users = require('../app/controllers/users');
-var main = require('../app/controllers/main');
-var service = require('../app/controllers/service');
-var articles = require('../app/controllers/articles');
-var comments = require('../app/controllers/comments');
+var users = require('../app/controllers/users'),
+  main = require('../app/controllers/main'),
+  service = require('../app/controllers/service'),
+  articles = require('../app/controllers/articles'),
+  comments = require('../app/controllers/comments'),
+  marks = require('../app/controllers/marks'),
+  auth = require('./middlewares/authorization'),
+  layout = require('./middlewares/layout');
 
-var auth = require('./middlewares/authorization');
-var layout = require('./middlewares/layout');
+
 /** * Route middlewares */
 var articleAuth = [auth.requiresLogin, auth.article.hasAuthorization];
 var commentAuth = [auth.requiresLogin, auth.comment.hasAuthorization];
 
 
 /** * Expose routes */
-
 module.exports = function (app, passport) {
   // set a cookie to requested locale
   app.use(function (req, res, next) {
@@ -79,7 +80,12 @@ module.exports = function (app, passport) {
   app.get('/services/3', auth.requiresLogin, service.getService3);
   app.get('/services/4', auth.requiresLogin, service.getService4);
   app.get('/services/5', auth.requiresLogin, service.getService5);
+
   app.get('/services/6', auth.requiresLogin, service.getService6);
+  app.get('/services/6/list', auth.requiresLogin, marks.list);
+  app.post('/services/6/create', auth.requiresLogin, marks.create);
+  app.delete('/services/6/delete', auth.requiresLogin, marks.delete);
+  app.post('/services/6/graphic', auth.requiresLogin, marks.graphicData);
 
 
   app.post('/services/1', auth.requiresLogin, service.handleService1);

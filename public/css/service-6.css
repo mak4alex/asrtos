@@ -78,3 +78,8 @@
     text-transform: none;
     border: none;
 }
+
+.scroll {
+    overflow:scroll;
+    height: 340px;
+}

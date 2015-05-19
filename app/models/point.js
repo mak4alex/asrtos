@@ -1,7 +1,6 @@
 /**  * Module dependencies.  */
 var mongoose = require('mongoose');
 
-
 var Schema = mongoose.Schema;
 
 /** * Point Schema */
@@ -18,23 +17,19 @@ var PointSchema = new Schema({
   },
   supply: {
     type: Number,
-    default: 0,
-    trim: true
+    default: 0
   },
   rate: {
     type: Number,
-    default: 0,
-    trim: true
+    default: 0
   },
   latitude: {
     type: Number,
-    default: 0,
-    trim: true
+    default: 0
   },
   longitude: {
     type: Number,
-    default: 0,
-    trim: true
+    default: 0
   },
   user: {
     type: Schema.ObjectId,

@@ -19,28 +19,51 @@
   </div>
   <div class="row">
     <div class="col-sx-12 col-md-6">
-      <form name="store-form" >
+      <h4>Форма расчета</h4>
+      <form name="graphic-form" method="post" action="/services/6/create" data-remote="true" >
+        <input type="hidden" name="_csrf" value="{{ csrf_token }}">
         <div class=" form-group">
-          <label for="year-own-cost" >Затраты эксплуатации собс склада</label><br/>
-          <input id="year-own-cost" name="year-own-cost" type="number" min="0.01" step="0.01" placeholder="Денежных единиц/год" class="form-control" required>
+          <label for="const-own-cost" >Затраты эксплуатации собс склада</label><br/>
+          <input id="const-own-cost" name="constOwnCost" type="number" min="0.01" step="0.01" placeholder="Денежных единиц/год" class="form-control" required>
         </div>
         <div class="form-group">
-          <label for="own-cost">Удельные затраты собс склада</label>
-          <input id="own-cost" name="own-cost" type="number" min="0.01" step="0.01" placeholder="Денежных единиц/тонна" class="form-control" required>
+          <label for="alt-own-cost">Удельные затраты собс склада</label>
+          <input id="alt-own-cost" name="altOwnCost" type="number" min="0.01" step="0.01" placeholder="Денежных единиц/тонна" class="form-control" required>
         </div>
         <div class="form-group">
-          <label for="rent-cost">Удельные затраты аренд склада</label>
-          <input id="rent-cost" name="rent-cost" type="number" min="0.01" step="0.01" placeholder="Денежных единиц/тонна" class="form-control" required>
+          <label for="alt-rent-cost">Удельные затраты аренд склада</label>
+          <input id="alt-rent-cost" name="altRentCost" type="number" min="0.01" step="0.01" placeholder="Денежных единиц/тонна" class="form-control" required>
         </div>
         <div class="form-group">
           <label for="turnover">Товарооборот</label>
           <input id="turnover" name="turnover" type="number" min="0.01" step="0.01" placeholder="Тонн/год" class="form-control" required>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary">Высчитать <span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+          <button type="submit" class="btn btn-info">Добавить <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
           <button type="reset" class="btn btn-warning">Сбросить <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
         </div>
       </form>
+    </div>
+
+    <div class="col-sx-12 col-md-6">
+      <h4>История расчетов</h4>
+      <div class="scroll">
+        <table  class="table table-bordered table-hover text-center">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th title="Затраты эксплуатации собственного склада">ЗЭСС</th>
+            <th title="Удельные затраты собственного склада">УЗСК</th>
+            <th title="Удельные затраты ареного склада">УЗАС</th>
+            <th title="Товарооборот">Тов-от</th>
+            <th>#</th>
+          </tr>
+          </thead>
+            <tbody id="result-table">
+
+            </tbody>
+        </table>
+      </div>
     </div>
   </div>
 

@@ -23,6 +23,7 @@
     "method-override": "^2.3.2",
     "mongodb": "^2.0.28",
     "mongoose": "^4.0.2",
+    "mongoose-auto-increment": "^4.0.0",
     "morgan": "~1.5.1",
     "multer": "0.1.4",
     "passport": "^0.2.1",
