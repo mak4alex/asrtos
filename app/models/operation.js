@@ -2,7 +2,7 @@
 exports.calculateStoreSquare = function(data) {
   var results = {};
   results['useful-square'] = data['shelves-count'] * data['shelve-square'];
-  results['helper-square'] = (data['shelves-count'] * data['shelve-square'] / 4) * (data['loader-width'] + 0.6);
+  results['helper-square'] = (data['shelves-count'] * data['shelve-square'] / data['time-save']) * (data['loader-width'] + 0.6);
   results['load-ship-square'] = data['average-demand'] * data['mass-unit'] / data['rate-load'] * data['rate-ripple'];
   results['store-square'] = 0;
   for (var i in results) {

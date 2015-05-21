@@ -31,7 +31,9 @@
     <br/>
     <!-----start-artical-destilas---->
     <div class="artical-details">
-      <p>{{ article.body }}</p>
+      <p>{% autoescape false %}
+        {{ article.body }}
+      {% endautoescape %}</p>
     </div>
   </div>
   <!----//End-blog-artical-grid--->

@@ -50,8 +50,8 @@ ArticleSchema.path('body').required(true, 'Article body cannot be blank');
 
 
 ArticleSchema.path('title').validate(function (title) {
-  return 4 < title.length && title.length < 25;
-}, 'Title has to be 5-24 letters');
+  return 4 < title.length && title.length < 50;
+}, 'Заголовок должен состоять из 5-50 символов');
 
 /** * Pre-save hook */
 

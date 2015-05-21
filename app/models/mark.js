@@ -52,7 +52,7 @@ MarkSchema.methods = {
     if (this.altRentCost != this.altOwnCost) {
       this.apathy = this.constOwnCost / (this.altRentCost - this.altOwnCost);
     } else {
-      this.apathy = "Ошибка вычисления.";
+      this.apathy = 0;
     }
   },
 
@@ -82,4 +82,5 @@ MarkSchema.plugin(autoIncrement.plugin, {
   field: 'id'
 });
 
-mongoose.model('Mark', MarkSchema);
+
+exports.Mark = mongoose.model('Mark', MarkSchema);

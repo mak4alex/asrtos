@@ -142,7 +142,7 @@ exports.handleService3 = function(req, res){
   }
 
   console.log(data);
-  var results = operation.calculateWilson();
+  var results = operation.calculateWilson(data);
   console.log(results);
 
   res.json(results)
