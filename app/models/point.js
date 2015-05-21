@@ -73,7 +73,7 @@ PointSchema.statics = {
       .exec(cb);
   },
 
-  locate: function ( res, pointsId ) {
+  locate: function ( res, pointsId, cb ) {
     var store = {
       latitude: 0,
       longitude: 0
@@ -98,7 +98,7 @@ PointSchema.statics = {
       store.latitude = latNumer / latDenom;
       store.longitude = longNumer / longDenom;
       console.log(store);
-      res.json(store);
+      cb(store);
     });
   }
 };

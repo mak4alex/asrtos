@@ -39,7 +39,7 @@ module.exports = function (app, passport) {
   app.post('/users/session',
     passport.authenticate('local', {
       failureRedirect: '/login',
-      failureFlash: 'Invalid email or password.'
+      failureFlash: 'Неверный email or пароль.'
     }), users.session);
   app.get('/users/:userId', users.show);
   app.param('userId', users.load);

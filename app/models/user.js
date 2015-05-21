@@ -73,12 +73,12 @@ var validatePresenceOf = function (value) {
 UserSchema.path('name').validate(function (name) {
     if (this.skipValidation()) return true;
     return name.length;
-}, 'Name cannot be blank');
+}, 'Поле имя обязательно для заполнения!');
 
 UserSchema.path('email').validate(function (email) {
     if (this.skipValidation()) return true;
     return email.length;
-}, 'Email cannot be blank');
+}, 'Поле email обязательно для заполнения!');
 
 UserSchema.path('email').validate(function (email, fn) {
     var User = mongoose.model('User');
@@ -90,19 +90,19 @@ UserSchema.path('email').validate(function (email, fn) {
             fn(!err && users.length === 0);
         });
     } else fn(true);
-}, 'Email already exists');
+}, 'Такой email уже существует!');
 
 
 UserSchema.path('hashed_password').validate(function () {
   if (this.skipValidation()) return true;
   return 6 < this.password.length && this.password.length < 25;
-}, 'Password has to be 7-24 letters');
+}, 'Пароль должен состоять из 7-24 символов!');
 
 
 UserSchema.path('hashed_password').validate(function (hashed_password) {
     if (this.skipValidation()) return true;
     return hashed_password.length;
-}, 'Password cannot be blank');
+}, 'Поле пароля обязательно для заполнения!');
 
 
 /** * Pre-save hook */

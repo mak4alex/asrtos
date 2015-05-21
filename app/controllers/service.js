@@ -2,6 +2,7 @@
 var mongoose = require('mongoose');
 var Carriage = mongoose.model('Carriage');
 var Point = mongoose.model('Point');
+var operation = require('../models/operation');
 var extend = require('util')._extend;
 
 exports.getService1 = function(req, res){
@@ -51,7 +52,9 @@ exports.deletePoint = function (req, res) {
 
 exports.handlePoints = function (req, res) {
   var data = req.body;
-  var result = Point.locate(res, data.ids);
+  var result = Point.locate(res, data.ids, function(store) {
+    res.json(store);
+  });
 };
 
 
@@ -85,7 +88,7 @@ exports.getService5 = function (req, res) {
 exports.createCarriage = function (req, res) {
   console.log("Create carriage id:" + req.body.id);
   Carriage.findOne({_id: req.body.id}, function (err, car) {
- //   if (err) console("Carriage not found");
+    //if (err) console("Carriage not found, it will be created.");
 
     var carriage = car;
     if (!carriage) {
@@ -124,16 +127,9 @@ exports.handleService1 = function(req, res){
   for (var el in data) {
     data[el] = parseFloat(data[el]);
   }
-  var results = {};
-  results['useful-square'] = data['shelves-count'] * data['shelve-square'];
-  results['helper-square'] = (data['shelves-count'] * data['shelve-square'] / 4) * (data['loader-width'] + 0.6);
-  results['load-ship-square'] = data['average-demand'] * data['mass-unit'] / data['rate-load'] * data['rate-ripple'];
-  results['store-square'] = 0;
-  for (var el in results) {
-    results['store-square'] += results[el];
-  }
 
   console.log(data);
+  var results = operation.calculateStoreSquare(data);
   console.log(results);
 
   res.json(results)
@@ -144,12 +140,9 @@ exports.handleService3 = function(req, res){
   for (var el in data) {
     data[el] = parseFloat(data[el]);
   }
-  var results = {};
-  results["optimal-order"] = Math.sqrt(2 * data["average-demand"] * data["const-costs"] / ( data["cost-unit"] * data["upkeep-cost"] / 100 ) );
-  results["min-costs"] = Math.sqrt( data["average-demand"] * data["const-costs"] * data["cost-unit"] * data["upkeep-cost"] ) ;
-  results["regime-supply"] = results["optimal-order"] / data["average-demand"] * 365;
 
   console.log(data);
+  var results = operation.calculateWilson();
   console.log(results);
 
   res.json(results)
