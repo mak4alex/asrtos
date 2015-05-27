@@ -1,0 +1,48 @@
+{% extends '../layouts/main.html' %}
+
+{% block title %}Управление складами{% endblock %}
+
+{% block head %}
+{% parent %}
+<link rel="stylesheet" href="/css/stores.css">
+<script src="/js/stores.js"></script>
+{% endblock %}
+
+{% block content %}
+
+{% include "../includes/navigation.html" with { service: "Управление складами" } %}
+
+<div class="container">
+  <div class="services-wel wel-head text-center">
+    <h3>Управление складами</h3>
+    <p>Добавляйте записи складов и сохраняйте в них результаты расчетов.</p>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-sm-5 col-md-4">
+      <button id="add-store" class="btn btn-primary">Добавить склад</button>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+          <th>#id</th>
+          <th>Название</th>
+          <th>Плошадь</th>
+          <th>Класс</th>
+          <th>Размер партии</th>
+          <th>Режим поставок</th>
+          <th>Координаты</th>
+          <th>Транспортные затраты</th>
+          <th>Точка безразличия</th>
+        </tr>
+        </thead>
+        <tbody id="stores-data">
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

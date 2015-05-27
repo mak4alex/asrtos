@@ -1,12 +1,13 @@
 /*!  * Module dependencies. */
 var users = require('../app/controllers/users'),
-  main = require('../app/controllers/main'),
-  service = require('../app/controllers/service'),
-  articles = require('../app/controllers/articles'),
-  comments = require('../app/controllers/comments'),
-  marks = require('../app/controllers/marks'),
-  auth = require('./middlewares/authorization'),
-  layout = require('./middlewares/layout');
+    main = require('../app/controllers/main'),
+    service = require('../app/controllers/service'),
+    articles = require('../app/controllers/articles'),
+    comments = require('../app/controllers/comments'),
+    marks = require('../app/controllers/marks'),
+    auth = require('./middlewares/authorization'),
+    layout = require('./middlewares/layout'),
+    stores = require('../app/controllers/stores');
 
 
 /** * Route middlewares */
@@ -82,6 +83,7 @@ module.exports = function (app, passport) {
   app.get('/services/5', auth.requiresLogin, service.getService5);
 
   app.get('/services/6', auth.requiresLogin, service.getService6);
+
   app.get('/services/6/list', auth.requiresLogin, marks.list);
   app.post('/services/6/create', auth.requiresLogin, marks.create);
   app.delete('/services/6/delete', auth.requiresLogin, marks.delete);
@@ -99,6 +101,13 @@ module.exports = function (app, passport) {
   app.post('/services/5', auth.requiresLogin, service.createCarriage);
   app.delete('/services/5', auth.requiresLogin, service.deleteCarriage);
 
+  // stores routes
+  app.get('/services/stores', auth.requiresLogin, stores.index);
+
+  app.post('/services/stores/create', auth.requiresLogin, stores.create);
+  app.get('/services/stores/list', auth.requiresLogin, stores.list);
+  app.put('/services/stores/edit', auth.requiresLogin, stores.create);
+  app.delete('/services/stores/delete', auth.requiresLogin, stores.delete);
 
   // article routes
   app.param('id', articles.load);

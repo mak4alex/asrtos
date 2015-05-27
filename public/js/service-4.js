@@ -28,7 +28,7 @@ $(document).ready( function() {
         }
       });
     } else {
-      alert("Select at least 1 point");
+      alert("Выберите хотя бы 1 точку!");
     }
   });
 

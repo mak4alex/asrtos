@@ -4,8 +4,8 @@ module.exports = {
   db: 'mongodb://user:123456@ds033831.mongolab.com:33831/asrtos',
   port: 5000,
   google: {
-    clientID: "983540084785-6tgfiotbq5uas7kq4dj4cki8gsvivdck.apps.googleusercontent.com",
-    clientSecret: "CqVq46unlnf5I9dp45Pil_Dm",
+    clientID: "404583651463-05p28gagjg8gm5gunpt5t6hbtm392nut.apps.googleusercontent.com",
+    clientSecret: "iuUcJUJh0-hIUVcl5TfMyrGS",
     callbackURL: "https://asrtos.herokuapp.com/auth/google/callback"
   },
   vkontakte: {

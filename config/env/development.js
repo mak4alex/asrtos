@@ -4,8 +4,8 @@ module.exports = {
   db: 'mongodb://localhost/noodjs_dev',
   port: 3000,
   google: {
-    clientID: "983540084785-7uqrau4fsf98d6a16q8remf8hb6liikh.apps.googleusercontent.com",
-    clientSecret: "rNa49dsgdQmUcnrfJSbRsrLH",
+    clientID: "404583651463-1fs69p5om3jqvtbv4tm3kabv2k7afk4r.apps.googleusercontent.com",
+    clientSecret: "MQpE_k0GNLLnGvKctAAmtXBD",
     callbackURL: "http://localhost:3000/auth/google/callback"
   },
   vkontakte: {
